@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | A.R.N Growth Charitable Trust(R)</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Custom Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#4f46e5',
+            secondary: '#7c3aed',
+            accent: '#ec4899',
+            light: '#f9fafb',
+            dark: '#1e293b'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- External Custom Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-gray-50 text-dark">
+  <!-- Navbar -->
+  <div id="navbar-container"></div>
+
+  <!-- Hero Banner -->
+  <section class="hero-bg min-h-[30vh] flex items-center pt-20">
+    <div class="container mx-auto px-4 py-12">
+      <h1 class="text-3xl md:text-4xl font-bold text-center text-dark">About A.R.N Growth Charitable Trust</h1>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="section bg-white">
+    <div class="container mx-auto max-w-4xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Our Mission & Vision</h2>
+        <div class="w-20 h-1 bg-primary mx-auto"></div>
+      </div>
+      <div class="space-y-6 text-gray-700">
+        <div>
+          <h3 class="text-xl font-semibold text-primary mb-2">Our Mission</h3>
+          <p>
+            To empower vulnerable communities by ensuring access to healthcare, education, and emergency support—so no life is lost due to lack of resources.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-secondary mb-2">Our Vision</h3>
+          <p>
+            A world where compassion bridges the gap between need and support—where every individual has the dignity of care, regardless of their financial status.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Trustees -->
+  <section class="section bg-white">
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Meet Our Trustees</h2>
+        <div class="w-20 h-1 bg-primary mx-auto"></div>
+        <p class="mt-4 text-gray-600">Guided by compassion, experience, and unwavering integrity.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card-hover bg-gray-50 rounded-xl p-6 text-center">
+          <img src="p.jpeg" alt="Mrs. Rukmini K M" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white shadow" />
+          <h3 class="text-xl font-bold mt-4">Mrs. Rukmini K M</h3>
+          <p class="text-gray-600 mb-3">President/Chairperson</p>
+          <p class="italic text-gray-700">“Service is not an obligation—it’s a privilege.”</p>
+        </div>
+        <div class="card-hover bg-gray-50 rounded-xl p-6 text-center">
+          <img src="s.jpeg" alt="Mrs. Ragini" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white shadow" />
+          <h3 class="text-xl font-bold mt-4">Mrs. Ragini</h3>
+          <p class="text-gray-600 mb-3">Secretary</p>
+          <p class="italic text-gray-700">“Every child deserves a classroom, not a compromise.”</p>
+        </div>
+        <div class="card-hover bg-gray-50 rounded-xl p-6 text-center">
+          <img src="t.jpeg" alt="Mr. Arnold Collins" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white shadow" />
+          <h3 class="text-xl font-bold mt-4">Mr. Arnold Collins</h3>
+          <p class="text-gray-600 mb-3">Treasurer</p>
+          <p class="italic text-gray-700">“Health is the foundation upon which dreams are built.”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Placeholder -->
+  <div id="footer-container"></div>
+
+  <!-- Load Navbar & Footer -->
+  <script>
+    fetch('navbar.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Navbar not found');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+        return fetch('footer.html');
+      })
+      .then(response => {
+        if (!response.ok) throw new Error('Footer not found');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer-container').innerHTML = data;
+        // Initialize mobile menu & scroll effect
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+          mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+        }
+        const navbar = document.getElementById('navbar');
+        if (navbar) {
+          const handleScroll = () => navbar.classList.toggle('navbar-scrolled', window.scrollY > 50);
+          window.addEventListener('scroll', handleScroll);
+          handleScroll();
+        }
+      })
+      .catch(err => {
+        console.error('Component load error:', err);
+        if (!document.getElementById('navbar-container').innerHTML)
+          document.getElementById('navbar-container').innerHTML =
+            '<nav class="fixed w-full py-4 bg-white shadow-sm text-center">Navigation failed.</nav>';
+        if (!document.getElementById('footer-container').innerHTML)
+          document.getElementById('footer-container').innerHTML =
+            '<footer class="bg-dark text-white py-6 text-center">Footer failed.</footer>';
+      });
+  </script>
+</body>
+</html>
