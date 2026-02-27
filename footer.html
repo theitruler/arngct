@@ -1,41 +1,88 @@
 <!-- footer.html -->
-<footer class="bg-dark text-white py-12">
-  <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <div>
-        <div class="flex items-center mb-4">
-          <a href="index.html" class="block">
-            <img src="logo.png" alt="ARNGCT" width="100" height="100" class="object-contain">
-          </a>
-          <span class="ml-2 font-bold text-xl">A.R.N Growth Charitable Trust</span>
+<footer class="bg-dark text-white py-12 relative">
+    <!-- Wave Divider Top -->
+    <div class="section-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-gray-50"></path>
+        </svg>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Brand Column -->
+            <div>
+                <div class="flex items-center mb-4">
+                    <a href="index.html" class="block">
+                        <img src="logo.png" alt="ARNGCT Logo" width="80" height="80" class="object-contain rounded-lg">
+                    </a>
+                    <span class="ml-3 font-bold text-lg">A.R.N Growth<br>Charitable Trust</span>
+                </div>
+                <p class="text-gray-400 mb-6">
+                    Empowering communities through sustainable development and humanitarian aid since 2025.
+                </p>
+                <!-- Social Media Links -->
+                <div class="flex space-x-3">
+                    <a href="https://facebook.com/arngct" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com/arngct" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://twitter.com/arngct" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/arngct" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-lg font-bold mb-4"><i class="fas fa-link mr-2"></i>Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="index.html#home" class="text-gray-400 footer-link inline-block">Home</a></li>
+                    <li><a href="aboutus.html" class="text-gray-400 footer-link inline-block">About Us</a></li>
+                    <li><a href="index.html#programs" class="text-gray-400 footer-link inline-block">Our Programs</a></li>
+                    <li><a href="index.html#donate" class="text-gray-400 footer-link inline-block">Donate</a></li>
+                    <li><a href="index.html#contact" class="text-gray-400 footer-link inline-block">Contact</a></li>
+                </ul>
+            </div>
+            
+            <!-- Our Programs -->
+            <div>
+                <h4 class="text-lg font-bold mb-4"><i class="fas fa-heart mr-2"></i>Our Programs</h4>
+                <ul class="space-y-3">
+                    <li><a href="index.html#programs" class="text-gray-400 footer-link inline-block">Education For All</a></li>
+                    <li><a href="index.html#programs" class="text-gray-400 footer-link inline-block">Healthcare Access</a></li>
+                    <li><a href="index.html#programs" class="text-gray-400 footer-link inline-block">Sustainable Development</a></li>
+                    <li><a href="index.html#programs" class="text-gray-400 footer-link inline-block">Emergency Relief</a></li>
+                    <li><a href="index.html#programs" class="text-gray-400 footer-link inline-block">Women Empowerment</a></li>
+                </ul>
+            </div>
+            
+            <!-- Legal -->
+            <div>
+                <h4 class="text-lg font-bold mb-4"><i class="fas fa-shield-alt mr-2"></i>Legal</h4>
+                <ul class="space-y-3">
+                    <li><a href="privacy.html" class="text-gray-400 footer-link inline-block"><i class="fas fa-user-shield mr-2"></i>Privacy Policy</a></li>
+                    <li><a href="terms.html" class="text-gray-400 footer-link inline-block"><i class="fas fa-file-contract mr-2"></i>Terms of Service</a></li>
+                    <li><a href="index.html#donate" class="text-gray-400 footer-link inline-block"><i class="fas fa-hand-holding-heart mr-2"></i>80G Tax Benefits</a></li>
+                    <li><a href="index.html#contact" class="text-gray-400 footer-link inline-block"><i class="fas fa-envelope mr-2"></i>Contact Us</a></li>
+                </ul>
+            </div>
         </div>
-        <p class="text-gray-400">
-          Empowering communities through sustainable development and humanitarian aid since 2025.
-        </p>
-      </div>
-      <div>
-        <h4 class="text-lg font-bold mb-4">Quick Links</h4>
-        <ul class="space-y-2">
-          <li><a href="index.html#home" class="text-gray-400 footer-link">Home</a></li>
-          <li><a href="aboutus.html" class="text-gray-400 footer-link">About Us</a></li>
-          <li><a href="index.html#programs" class="text-gray-400 footer-link">Our Programs</a></li>
-          <li><a href="index.html#donate" class="text-gray-400 footer-link">Donate</a></li>
-          <li><a href="index.html#contact" class="text-gray-400 footer-link">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-lg font-bold mb-4">Our Programs</h4>
-        <ul class="space-y-2">
-          <li><a href="#" class="text-gray-400 footer-link">Education For All</a></li>
-          <li><a href="#" class="text-gray-400 footer-link">Healthcare Access</a></li>
-          <li><a href="#" class="text-gray-400 footer-link">Sustainable Development</a></li>
-          <li><a href="#" class="text-gray-400 footer-link">Emergency Relief</a></li>
-          <li><a href="#" class="text-gray-400 footer-link">Women Empowerment</a></li>
-        </ul>
-      </div>
+        
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-800 mt-12 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2026 A.R.N Growth Charitable Trust(R). All rights reserved.
+                </p>
+                <p class="text-gray-600 text-sm mt-2 md:mt-0">
+                    <i class="fas fa-code mr-1"></i>Made with <span class="text-red-500">&hearts;</span> for humanity
+                </p>
+            </div>
+        </div>
     </div>
-    <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
-      <p>&copy; 2026 A. R. N Growth Charitable Trust. All rights reserved.</p>
-    </div>
-  </div>
 </footer>

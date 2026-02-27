@@ -1,141 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | A.R.N Growth Charitable Trust(R)</title>
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Custom Tailwind Config -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#4f46e5',
-            secondary: '#7c3aed',
-            accent: '#ec4899',
-            light: '#f9fafb',
-            dark: '#1e293b'
-          }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>About Us | A.R.N Growth Charitable Trust</title>
+    <meta name="description" content="Learn about A.R.N Growth Charitable Trust - our mission, vision, and the dedicated team of trustees working to empower communities through education, healthcare, and sustainable development." />
+    <meta name="keywords" content="about us, charitable trust, trustees, mission, vision, NGO Bangalore, non-profit India" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://arngct.org/aboutus.html" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://arngct.org/aboutus.html" />
+    <meta property="og:title" content="About Us | A.R.N Growth Charitable Trust" />
+    <meta property="og:description" content="Meet our team and learn about our mission to empower communities." />
+    <meta property="og:image" content="https://arngct.org/logo.png" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="logo.png" />
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#7c3aed',
+                        accent: '#ec4899',
+                        light: '#f9fafb',
+                        dark: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
-  <!-- External Custom Styles -->
-  <link rel="stylesheet" href="styles.css" />
+    </script>
+    
+    <!-- External Custom Styles -->
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="bg-gray-50 text-dark">
-  <!-- Navbar -->
-  <div id="navbar-container"></div>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
 
-  <!-- Hero Banner -->
-  <section class="hero-bg min-h-[30vh] flex items-center pt-20">
-    <div class="container mx-auto px-4 py-12">
-      <h1 class="text-3xl md:text-4xl font-bold text-center text-dark">About A.R.N Growth Charitable Trust</h1>
+    <!-- Hero Banner -->
+    <section class="hero-bg min-h-[40vh] flex items-center pt-24 relative">
+        <div class="absolute top-20 right-10 w-24 h-24 bg-primary/10 rounded-full blur-xl"></div>
+        <div class="absolute bottom-10 left-20 w-16 h-16 bg-secondary/10 rounded-full blur-xl"></div>
+        
+        <div class="container mx-auto px-4 py-16 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 fade-in">
+                    <i class="fas fa-info-circle mr-2"></i>Who We Are
+                </span>
+                <h1 class="text-3xl md:text-5xl font-bold text-center fade-in fade-in-delay-1">
+                    About <span class="text-gradient">A.R.N Growth</span><br>Charitable Trust
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave Divider -->
+    <div class="section-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-gray-50"></path>
+        </svg>
     </div>
-  </section>
 
-  <!-- Mission & Vision -->
-  <section class="section bg-white">
-    <div class="container mx-auto max-w-4xl">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold mb-4">Our Mission & Vision</h2>
-        <div class="w-20 h-1 bg-primary mx-auto"></div>
-      </div>
-      <div class="space-y-6 text-gray-700">
-        <div>
-          <h3 class="text-xl font-semibold text-primary mb-2">Our Mission</h3>
-          <p>
-            To empower vulnerable communities by ensuring access to healthcare, education, and emergency support—so no life is lost due to lack of resources.
-          </p>
+    <!-- Mission & Vision -->
+    <section class="section bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Mission & Vision</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Mission -->
+                <div class="glass-card p-8 rounded-2xl fade-in">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-5">
+                        <i class="fas fa-bullseye text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Our Mission</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        To empower vulnerable communities by ensuring access to healthcare, education, and emergency support—so no life is lost due to lack of resources.
+                    </p>
+                </div>
+                
+                <!-- Vision -->
+                <div class="glass-card p-8 rounded-2xl fade-in fade-in-delay-1">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary to-accent flex items-center justify-center mb-5">
+                        <i class="fas fa-eye text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">Our Vision</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        A world where compassion bridges the gap between need and support—where every individual has the dignity of care, regardless of their financial status.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Values -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold text-center mb-8">Our Core Values</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="trust-card p-6 text-center rounded-xl fade-in">
+                        <i class="fas fa-heart text-3xl text-primary mb-3"></i>
+                        <h4 class="font-bold">Compassion</h4>
+                    </div>
+                    <div class="trust-card p-6 text-center rounded-xl fade-in fade-in-delay-1">
+                        <i class="fas fa-check-circle text-3xl text-secondary mb-3"></i>
+                        <h4 class="font-bold">Integrity</h4>
+                    </div>
+                    <div class="trust-card p-6 text-center rounded-xl fade-in fade-in-delay-2">
+                        <i class="fas fa-users text-3xl text-accent mb-3"></i>
+                        <h4 class="font-bold">Community</h4>
+                    </div>
+                    <div class="trust-card p-6 text-center rounded-xl fade-in fade-in-delay-3">
+                        <i class="fas fa-lightbulb text-3xl text-yellow-500 mb-3"></i>
+                        <h4 class="font-bold">Innovation</h4>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-          <h3 class="text-xl font-semibold text-secondary mb-2">Our Vision</h3>
-          <p>
-            A world where compassion bridges the gap between need and support—where every individual has the dignity of care, regardless of their financial status.
-          </p>
-        </div>
-      </div>
+    </section>
+
+    <!-- Wave Divider -->
+    <div class="section-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-gray-50"></path>
+        </svg>
     </div>
-  </section>
 
-  <!-- Our Trustees -->
-  <section class="section bg-white">
-    <div class="container mx-auto max-w-6xl">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold mb-4">Meet Our Trustees</h2>
-        <div class="w-20 h-1 bg-primary mx-auto"></div>
-        <p class="mt-4 text-gray-600">Guided by compassion, experience, and unwavering integrity.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="card-hover bg-gray-50 rounded-xl p-6 text-center">
-          <img src="p.jpeg" alt="Mrs. Rukmini K M" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white shadow" />
-          <h3 class="text-xl font-bold mt-4">Mrs. Rukmini K M</h3>
-          <p class="text-gray-600 mb-3">President/Chairperson</p>
-          <p class="italic text-gray-700">“Service is not an obligation—it’s a privilege.”</p>
+    <!-- Our Trustees -->
+    <section class="section bg-gray-50">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <span class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+                    <i class="fas fa-user-tie mr-2"></i>Meet The Team
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet Our Trustees</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Guided by compassion, experience, and unwavering integrity.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Trustee 1 -->
+                <div class="card-hover bg-white rounded-2xl p-8 text-center shadow-sm stagger-item">
+                    <div class="relative inline-block">
+                        <img src="p.jpeg" alt="Mrs. Rukmini K M" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white shadow-lg" />
+                        <div class="absolute bottom-0 right-0 w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mt-6">Mrs. Rukmini K M</h3>
+                    <p class="text-primary font-medium mb-3"><i class="fas fa-id-card-alt mr-2"></i>President/Chairperson</p>
+                    <p class="italic text-gray-700 bg-gray-50 p-4 rounded-lg">"Service is not an obligation—it's a privilege."</p>
+                </div>
+                
+                <!-- Trustee 2 -->
+                <div class="card-hover bg-white rounded-2xl p-8 text-center shadow-sm stagger-item">
+                    <img src="s.jpeg" alt="Mrs. Ragini" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white shadow-lg" />
+                    <h3 class="text-xl font-bold mt-6">Mrs. Ragini</h3>
+                    <p class="text-secondary font-medium mb-3"><i class="fas fa-pen-alt mr-2"></i>Secretary</p>
+                    <p class="italic text-gray-700 bg-gray-50 p-4 rounded-lg">"Every child deserves a classroom, not a compromise."</p>
+                </div>
+                
+                <!-- Trustee 3 -->
+                <div class="card-hover bg-white rounded-2xl p-8 text-center shadow-sm stagger-item">
+                    <img src="t.jpeg" alt="Mr. Arnold Collins" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white shadow-lg" />
+                    <h3 class="text-xl font-bold mt-6">Mr. Arnold Collins</h3>
+                    <p class="text-accent font-medium mb-3"><i class="fas fa-coins mr-2"></i>Treasurer</p>
+                    <p class="italic text-gray-700 bg-gray-50 p-4 rounded-lg">"Health is the foundation upon which dreams are built."</p>
+                </div>
+            </div>
         </div>
-        <div class="card-hover bg-gray-50 rounded-xl p-6 text-center">
-          <img src="s.jpeg" alt="Mrs. Ragini" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white shadow" />
-          <h3 class="text-xl font-bold mt-4">Mrs. Ragini</h3>
-          <p class="text-gray-600 mb-3">Secretary</p>
-          <p class="italic text-gray-700">“Every child deserves a classroom, not a compromise.”</p>
-        </div>
-        <div class="card-hover bg-gray-50 rounded-xl p-6 text-center">
-          <img src="t.jpeg" alt="Mr. Arnold Collins" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white shadow" />
-          <h3 class="text-xl font-bold mt-4">Mr. Arnold Collins</h3>
-          <p class="text-gray-600 mb-3">Treasurer</p>
-          <p class="italic text-gray-700">“Health is the foundation upon which dreams are built.”</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer Placeholder -->
-  <div id="footer-container"></div>
+    <!-- CTA Section -->
+    <section class="section bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <div class="glass-card rounded-2xl p-8 md:p-12 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">Want to Join Our Mission?</h2>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Whether you'd like to volunteer your time, partner with us, or make a donation—your support makes a difference.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="index.html#donate" class="btn-primary text-white px-8 py-3 rounded-full font-medium shadow-lg inline-block">
+                        <i class="fas fa-heart mr-2"></i>Donate Now
+                    </a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSejuqp1H8-rwHplarFkw-8Vu_XSP5A6-t_vDDu3QeLkLRdq5w/viewform?usp=publish-editor" 
+                       class="bg-white text-primary border-2 border-primary px-8 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition-all inline-block">
+                        <i class="fas fa-hands-helping mr-2"></i>Become a Volunteer
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Load Navbar & Footer -->
-  <script>
-    fetch('navbar.html')
-      .then(response => {
-        if (!response.ok) throw new Error('Navbar not found');
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById('navbar-container').innerHTML = data;
-        return fetch('footer.html');
-      })
-      .then(response => {
-        if (!response.ok) throw new Error('Footer not found');
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById('footer-container').innerHTML = data;
-        // Initialize mobile menu & scroll effect
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-          mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-          mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    <!-- Footer Placeholder -->
+    <div id="footer-container"></div>
+
+    <!-- Fade in animation observer -->
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in, .stagger-item').forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        fetch('navbar.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Navbar not found');
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html');
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Footer not found');
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                initPageScripts();
+            })
+            .catch(err => {
+                console.error('Component load error:', err);
+                if (!document.getElementById('navbar-container').innerHTML)
+                    document.getElementById('navbar-container').innerHTML =
+                        '<nav class="fixed w-full py-4 bg-white shadow-sm text-center">Navigation failed.</nav>';
+                if (!document.getElementById('footer-container').innerHTML)
+                    document.getElementById('footer-container').innerHTML =
+                        '<footer class="bg-dark text-white py-6 text-center">Footer failed.</footer>';
+            });
+
+        function initPageScripts() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+                mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+            }
+            
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                const handleScroll = () => navbar.classList.toggle('navbar-scrolled', window.scrollY > 50);
+                window.addEventListener('scroll', handleScroll);
+                handleScroll();
+            }
         }
-        const navbar = document.getElementById('navbar');
-        if (navbar) {
-          const handleScroll = () => navbar.classList.toggle('navbar-scrolled', window.scrollY > 50);
-          window.addEventListener('scroll', handleScroll);
-          handleScroll();
-        }
-      })
-      .catch(err => {
-        console.error('Component load error:', err);
-        if (!document.getElementById('navbar-container').innerHTML)
-          document.getElementById('navbar-container').innerHTML =
-            '<nav class="fixed w-full py-4 bg-white shadow-sm text-center">Navigation failed.</nav>';
-        if (!document.getElementById('footer-container').innerHTML)
-          document.getElementById('footer-container').innerHTML =
-            '<footer class="bg-dark text-white py-6 text-center">Footer failed.</footer>';
-      });
-  </script>
+    </script>
 </body>
 </html>

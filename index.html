@@ -1,335 +1,572 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>A.R.N Growth Charitable Trust(R)</title>
-<!-- Tailwind CSS via CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-<!-- Custom Tailwind Config -->
-<script>
-tailwind.config = {
-theme: {
-extend: {
-colors: {
-primary: '#4f46e5',
-secondary: '#7c3aed',
-accent: '#ec4899',
-light: '#f9fafb',
-dark: '#1e293b'
-}
-}
-}
-}
-</script>
-<!-- External Custom Styles -->
-<link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>A.R.N Growth Charitable Trust | Education, Healthcare & Community Development</title>
+    <meta name="description" content="A.R.N Growth Charitable Trust is a non-profit organization in Bangalore, India. We focus on education for all, healthcare access, sustainable development, heritage conservation, and community volunteering. Your donation helps create positive change." />
+    <meta name="keywords" content="charitable trust, NGO, donations, education, healthcare, Bangalore, non-profit, volunteer, 80G tax benefit" />
+    <meta name="author" content="A.R.N Growth Charitable Trust" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://arngct.org/" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://arngct.org/" />
+    <meta property="og:title" content="A.R.N Growth Charitable Trust | Building a Better Future Together" />
+    <meta property="og:description" content="Join us in creating positive change for communities in need. Your donation helps provide education, healthcare, and sustainable development." />
+    <meta property="og:image" content="https://arngct.org/logo.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://arngct.org/" />
+    <meta property="twitter:title" content="A.R.N Growth Charitable Trust" />
+    <meta property="twitter:description" content="Building a better future through education, healthcare, and community development." />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="logo.png" />
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#7c3aed',
+                        accent: '#ec4899',
+                        light: '#f9fafb',
+                        dark: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- External Custom Styles -->
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="bg-gray-50 text-dark">
-<!-- Navbar -->
-<div id="navbar-container"></div>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
 
-<!-- Hero Section -->
-<section id="home" class="hero-bg min-h-screen flex items-center">
-<div class="container mx-auto px-4 py-20">
-<div class="max-w-3xl mx-auto text-center">
-<h1 class="text-4xl md:text-6xl font-bold mb-6">Building a Better Future Together</h1>
-<p class="text-xl text-gray-700 mb-10">
-Join us in creating positive change for communities in need around the world.
-</p>
-<div class="flex flex-col sm:flex-row justify-center gap-4">
-<a href="#donate" class="btn-primary text-white px-8 py-3 rounded-full font-medium shadow-lg">Donate Now</a>
-<a href="#programs" class="bg-white text-primary px-8 py-3 rounded-full font-medium shadow-lg hover:bg-gray-50 transition-colors">Our Programs</a>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Our Programs Section -->
-<section id="programs" class="section bg-gray-50">
-<div class="container mx-auto">
-<div class="text-center mb-16">
-<h2 class="text-3xl md:text-4xl font-bold mb-4">Our Programs</h2>
-<div class="w-20 h-1 bg-primary mx-auto"></div>
-<p class="mt-4 text-gray-600 max-w-2xl mx-auto">
-We run diverse initiatives focused on education, healthcare, sustainable development, heritage conservation, and community volunteering.
-</p>
-</div>
-<!-- Grid updated to accommodate 5 items (responsive layout) -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    
-    <!-- 1. Education For All -->
-    <div class="card-hover bg-white p-6 rounded-xl shadow-sm">
-        <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-            <i class="fas fa-book-open text-primary text-2xl"></i>
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center relative">
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"></div>
+        <div class="absolute bottom-40 right-20 w-32 h-32 bg-secondary/10 rounded-full blur-xl"></div>
+        
+        <div class="container mx-auto px-4 py-20 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6 fade-in">
+                    <i class="fas fa-heart mr-2"></i>Making a Difference Since 2025
+                </span>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in fade-in-delay-1">
+                    Building a <span class="text-gradient">Better Future</span> Together
+                </h1>
+                <p class="text-xl text-gray-600 mb-10 fade-in fade-in-delay-2">
+                    Join us in creating positive change for communities in need around the world. 
+                    Every contribution brings hope and transforms lives.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 fade-in fade-in-delay-3">
+                    <a href="#donate" class="btn-primary text-white px-8 py-4 rounded-full font-medium shadow-lg inline-block">
+                        <i class="fas fa-heart mr-2"></i>Donate Now
+                    </a>
+                    <a href="#programs" class="bg-white text-primary px-8 py-4 rounded-full font-medium shadow-lg hover:bg-gray-50 transition-all hover:-translate-y-1 inline-block">
+                        <i class="fas fa-hands-helping mr-2"></i>Our Programs
+                    </a>
+                </div>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-6 mt-16 max-w-lg mx-auto fade-in fade-in-delay-4">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary stat-number">10K+</div>
+                        <div class="text-gray-500 text-sm">Lives Impacted</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-secondary stat-number">5+</div>
+                        <div class="text-gray-500 text-sm">Programs</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent stat-number">100%</div>
+                        <div class="text-gray-500 text-sm">Transparency</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h3 class="text-xl font-bold mb-3">Education For All</h3>
-        <p class="text-gray-600">
-            Providing quality education to underprivileged children through school construction,
-            teacher training, and scholarship programs.
-        </p>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
+            <a href="#programs" class="text-gray-400 hover:text-primary transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Wave Divider -->
+    <div class="section-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-gray-50"></path>
+        </svg>
     </div>
 
-    <!-- 4. Historical Place Restoration (NEW) -->
-    <div class="card-hover bg-white p-6 rounded-xl shadow-sm">
-        <div class="w-14 h-14 rounded-full bg-yellow-100 flex items-center justify-center mb-4">
-            <i class="fas fa-landmark text-yellow-600 text-2xl"></i>
+    <!-- Our Programs Section -->
+    <section id="programs" class="section bg-gray-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+                    <i class="fas fa-star mr-2"></i>What We Do
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Programs</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                    We run diverse initiatives focused on education, healthcare, sustainable development, heritage conservation, and community volunteering.
+                </p>
+            </div>
+            
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- 1. Education For All -->
+                <div class="program-card card-hover bg-white p-8 rounded-2xl shadow-sm stagger-item">
+                    <div class="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center mb-5">
+                        <i class="fas fa-book-open text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Education For All</h3>
+                    <p class="text-gray-600">
+                        Providing quality education to underprivileged children through school construction,
+                        teacher training, and scholarship programs.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-sm text-primary font-medium"><i class="fas fa-arrow-right mr-1"></i>Learn More</span>
+                    </div>
+                </div>
+
+                <!-- 2. Healthcare Access -->
+                <div class="program-card card-hover bg-white p-8 rounded-2xl shadow-sm stagger-item">
+                    <div class="w-16 h-16 rounded-2xl bg-pink-100 flex items-center justify-center mb-5">
+                        <i class="fas fa-heartbeat text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Healthcare Access</h3>
+                    <p class="text-gray-600">
+                        Free medical camps, emergency healthcare support, and awareness programs 
+                        for underserved communities.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-sm text-primary font-medium"><i class="fas fa-arrow-right mr-1"></i>Learn More</span>
+                    </div>
+                </div>
+
+                <!-- 3. Sustainable Development -->
+                <div class="program-card card-hover bg-white p-8 rounded-2xl shadow-sm stagger-item">
+                    <div class="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center mb-5">
+                        <i class="fas fa-leaf text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Sustainable Development</h3>
+                    <p class="text-gray-600">
+                        Environmental conservation projects, sustainable farming practices, 
+                        and clean energy initiatives for rural communities.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-sm text-primary font-medium"><i class="fas fa-arrow-right mr-1"></i>Learn More</span>
+                    </div>
+                </div>
+
+                <!-- 4. Historical Place Restoration -->
+                <div class="program-card card-hover bg-white p-8 rounded-2xl shadow-sm stagger-item">
+                    <div class="w-16 h-16 rounded-2xl bg-yellow-100 flex items-center justify-center mb-5">
+                        <i class="fas fa-landmark text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Historical Restoration</h3>
+                    <p class="text-gray-600">
+                        Preserving our cultural heritage by restoring ancient monuments, temples, 
+                        and historical sites for future generations.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-sm text-primary font-medium"><i class="fas fa-arrow-right mr-1"></i>Learn More</span>
+                    </div>
+                </div>
+
+                <!-- 5. Volunteering Opportunities -->
+                <div class="program-card card-hover bg-white p-8 rounded-2xl shadow-sm stagger-item">
+                    <div class="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center mb-5">
+                        <i class="fas fa-hands-helping text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Volunteering</h3>
+                    <p class="text-gray-600">
+                        Join our team of dedicated volunteers. Participate in field visits, 
+                        teaching drives, and community outreach programs.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-sm text-primary font-medium"><i class="fas fa-arrow-right mr-1"></i>Join Us</span>
+                    </div>
+                </div>
+
+                <!-- 6. Women Empowerment -->
+                <div class="program-card card-hover bg-white p-8 rounded-2xl shadow-sm stagger-item">
+                    <div class="w-16 h-16 rounded-2xl bg-rose-100 flex items-center justify-center mb-5">
+                        <i class="fas fa-female text-rose-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Women Empowerment</h3>
+                    <p class="text-gray-600">
+                        Skills training, entrepreneurship support, and awareness programs 
+                        to empower women and girls in rural communities.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-sm text-primary font-medium"><i class="fas fa-arrow-right mr-1"></i>Learn More</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <h3 class="text-xl font-bold mb-3">Historical Restoration</h3>
-        <p class="text-gray-600">
-            Preserving our cultural heritage by restoring ancient monuments, temples, and historical sites
-            for future generations.
-        </p>
+    </section>
+
+    <!-- Wave Divider Bottom -->
+    <div class="section-divider-bottom">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-white"></path>
+        </svg>
     </div>
 
-    <!-- 5. Volunteering Opportunities (NEW) -->
-    <div class="card-hover bg-white p-6 rounded-xl shadow-sm">
-        <div class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4">
-            <i class="fas fa-hands-helping text-green-600 text-2xl"></i>
+    <!-- Donate Section -->
+    <section id="donate" class="section bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+                    <i class="fas fa-hand-holding-heart mr-2"></i>Support Our Mission
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Make a Difference Today</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                    Your donation can change lives. Every contribution, big or small, helps us continue our mission.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto glass-card rounded-2xl p-6 md:p-10">
+                <div class="text-center space-y-8">
+                    <!-- Why Donate -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6"><i class="fas fa-question-circle text-primary mr-2"></i>Why Donate?</h3>
+                        <ul class="space-y-4 inline-block text-left">
+                            <li class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-green-600 text-sm"></i>
+                                </div>
+                                <span>100% of your donation goes directly to programs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-green-600 text-sm"></i>
+                                </div>
+                                <span>Transparent reporting on fund utilization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-green-600 text-sm"></i>
+                                </div>
+                                <span>Tax benefits under Section 80G for Indian donors</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-green-600 text-sm"></i>
+                                </div>
+                                <span>Regular updates on impact of your contribution</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Trust Badges -->
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="trust-card px-6 py-3 flex items-center">
+                            <i class="fas fa-shield-alt text-primary mr-2"></i>
+                            <span class="font-medium">Secure Donation</span>
+                        </div>
+                        <div class="trust-card px-6 py-3 flex items-center">
+                            <i class="fas fa-file-invoice-dollar text-secondary mr-2"></i>
+                            <span class="font-medium">80G Tax Benefit</span>
+                        </div>
+                        <div class="trust-card px-6 py-3 flex items-center">
+                            <i class="fas fa-chart-line text-accent mr-2"></i>
+                            <span class="font-medium">100% Transparent</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Other Ways to Support -->
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Other Ways to Support</h4>
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSejuqp1H8-rwHplarFkw-8Vu_XSP5A6-t_vDDu3QeLkLRdq5w/viewform?usp=publish-editor" 
+                               class="bg-white px-5 py-2 rounded-full border-2 border-gray-200 hover:border-primary hover:text-primary transition-all font-medium">
+                                <i class="fas fa-hands-helping mr-2"></i>Become a Volunteer
+                            </a>
+                            <a href="#contact" class="bg-white px-5 py-2 rounded-full border-2 border-gray-200 hover:border-secondary hover:text-secondary transition-all font-medium">
+                                <i class="fas fa-bullhorn mr-2"></i>Fundraise
+                            </a>
+                            <a href="#contact" class="bg-white px-5 py-2 rounded-full border-2 border-gray-200 hover:border-accent hover:text-accent transition-all font-medium">
+                                <i class="fas fa-handshake mr-2"></i>Corporate Partnership
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Donate Now Button -->
+                    <div class="mt-8">
+                        <a href="https://rzp.io/rzp/QfLet5M3" target="_blank" 
+                           class="btn-primary text-white px-10 py-4 rounded-full font-medium shadow-lg inline-block text-lg">
+                            <i class="fas fa-heart mr-2"></i>Donate Now
+                        </a>
+                        <p class="text-gray-500 text-sm mt-4">
+                            <i class="fas fa-lock mr-1"></i>Secure payment via Razorpay
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h3 class="text-xl font-bold mb-3">Volunteering Opportunities</h3>
-        <p class="text-gray-600">
-            Join our team of dedicated volunteers. Participate in field visits, teaching drives, 
-            and community outreach programs.
-        </p>
+    </section>
+
+    <!-- Wave Divider -->
+    <div class="section-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-gray-50"></path>
+        </svg>
     </div>
 
-</div>
-</div>
-</section>
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-gray-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+                    <i class="fas fa-envelope-open-text mr-2"></i>Get In Touch
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                    Have questions or want to learn more about our work? Reach out to us!
+                </p>
+            </div>
+            
+            <!-- Flex container: side-by-side on desktop, stacked on mobile -->
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Left: Contact Info -->
+                <div class="glass-card p-8 rounded-2xl space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-blue-100 p-4 rounded-xl">
+                            <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Our Location</h4>
+                            <p class="text-gray-600">Balaji Layout, Babusahabpalya, Bangalore</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-pink-100 p-4 rounded-xl">
+                            <i class="fas fa-envelope text-accent text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Email Address</h4>
+                            <p class="text-gray-600">enquiry@arngct.org</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-indigo-100 p-4 rounded-xl">
+                            <i class="fas fa-clock text-indigo-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Working Hours</h4>
+                            <p class="text-gray-600">Monday–Friday: 9AM – 6PM</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-green-100 p-4 rounded-xl">
+                            <i class="fas fa-phone text-green-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Phone</h4>
+                            <p class="text-gray-600">+91 98765 43210</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right: Contact Form -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-xl font-bold mb-6"><i class="fas fa-paper-plane text-primary mr-2"></i>Send us a Message</h3>
+                    <form id="contact-form" class="space-y-5">
+                        <!-- Name -->
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">
+                                <i class="fas fa-user mr-1"></i>Name *
+                            </label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none contact-input"
+                                placeholder="Enter your full name" />
+                        </div>
+                        <!-- Phone or Email -->
+                        <div>
+                            <label for="phoneOrEmail" class="block text-gray-700 font-medium mb-2">
+                                <i class="fas fa-phone mr-1"></i>Phone Number or Email *
+                            </label>
+                            <input type="text" id="phoneOrEmail" name="phoneOrEmail" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none contact-input"
+                                placeholder="e.g., 9876543210 or you@example.com" />
+                            <p class="text-sm text-gray-500 mt-1">Please provide a valid 10-digit phone number or email address.</p>
+                        </div>
+                        <!-- Message -->
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">
+                                <i class="fas fa-comment mr-1"></i>Message *
+                            </label>
+                            <textarea id="message" name="message" rows="4" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none contact-input"
+                                placeholder="Type your message here..."></textarea>
+                        </div>
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-primary w-full text-white px-6 py-4 rounded-lg font-medium shadow-md text-lg">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Donate Section -->
-<section id="donate" class="section bg-white">
-<div class="container mx-auto">
-<div class="text-center mb-16">
-<h2 class="text-3xl md:text-4xl font-bold mb-4">Make a Difference Today</h2>
-<div class="w-20 h-1 bg-primary mx-auto"></div>
-<p class="mt-4 text-gray-600 max-w-2xl mx-auto">
-Your donation can change lives. Every contribution, big or small, helps us continue our mission.
-</p>
-</div>
-<div class="max-w-4xl mx-auto bg-gray-50 rounded-2xl p-6 md:p-8">
-<div class="text-center space-y-8">
-<div>
-<h3 class="text-2xl font-bold mb-4">Why Donate?</h3>
-<ul class="space-y-3 inline-block text-left">
-<li class="flex items-start">
-<i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
-<span>100% of your donation goes directly to programs</span>
-</li>
-<li class="flex items-start">
-<i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
-<span>Transparent reporting on fund utilization</span>
-</li>
-<li class="flex items-start">
-<i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
-<span>Tax benefits for donors in most countries</span>
-</li>
-<li class="flex items-start">
-<i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
-<span>Regular updates on impact of your contribution</span>
-</li>
-</ul>
-</div>
-<div>
-<h4 class="font-bold text-lg mb-3">Other Ways to Support</h4>
-<div class="flex flex-wrap justify-center gap-3">
-<a href="#" class="bg-white px-4 py-2 rounded-full border border-gray-300 hover:border-primary transition-colors">Volunteer</a>
-<a href="#" class="bg-white px-4 py-2 rounded-full border border-gray-300 hover:border-primary transition-colors">Fundraise</a>
-<a href="#" class="bg-white px-4 py-2 rounded-full border border-gray-300 hover:border-primary transition-colors">Corporate Partnership</a>
-<!-- New Button Added Below -->
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSejuqp1H8-rwHplarFkw-8Vu_XSP5A6-t_vDDu3QeLkLRdq5w/viewform?usp=publish-editor" class="bg-primary text-white px-4 py-2 rounded-full border border-primary hover:bg-indigo-700 transition-colors">Become a Volunteer</a>
-</div>
-</div>
-<!-- Donate Now Button -->
-<div class="mt-6">
-<a href="https://rzp.io/rzp/QfLet5M3" target="_blank" class="btn-primary text-white px-8 py-3 rounded-full font-medium shadow-lg inline-block">
-Donate Now
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
+    <!-- Footer Placeholder -->
+    <div id="footer-container"></div>
 
-<!-- Contact Section -->
-<section id="contact" class="section bg-gray-50">
-<div class="container mx-auto">
-<div class="text-center mb-16">
-<h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
-<div class="w-20 h-1 bg-primary mx-auto"></div>
-<p class="mt-4 text-gray-600 max-w-2xl mx-auto">
-Have questions or want to learn more about our work? Reach out to us!
-</p>
-</div>
-<!-- Flex container: side-by-side on desktop, stacked on mobile -->
-<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-<!-- Left: Original Contact Info -->
-<div class="bg-white p-8 rounded-xl shadow-sm space-y-6">
-<div class="flex flex-col items-center">
-<div class="bg-blue-100 p-3 rounded-full mb-2">
-<i class="fas fa-map-marker-alt text-primary text-xl"></i>
-</div>
-<h4 class="font-bold">Our Location</h4>
-<p class="text-gray-600 text-center">Balaji Layout, Babusahabpalya, Bangalore</p>
-</div>
-<div class="flex flex-col items-center">
-<div class="bg-pink-100 p-3 rounded-full mb-2">
-<i class="fas fa-envelope text-accent text-xl"></i>
-</div>
-<h4 class="font-bold">Email Address</h4>
-<p class="text-gray-600">enquiry@arngct.org</p>
-</div>
-<div class="flex flex-col items-center">
-<div class="bg-indigo-100 p-3 rounded-full mb-2">
-<i class="fas fa-clock text-indigo-600 text-xl"></i>
-</div>
-<h4 class="font-bold">Working Hours</h4>
-<p class="text-gray-600">Monday–Friday: 9AM – 6PM</p>
-</div>
-</div>
-<!-- Right: New Contact Form -->
-<div class="bg-white p-8 rounded-xl shadow-sm">
-<form id="contact-form" class="space-y-6">
-<!-- Name -->
-<div>
-<label for="name" class="block text-gray-700 font-medium mb-2">Name *</label>
-<input type="text" id="name" name="name" required
-class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
-placeholder="Enter your full name" />
-</div>
-<!-- Phone or Email -->
-<div>
-<label for="phoneOrEmail" class="block text-gray-700 font-medium mb-2">Phone Number or Email *</label>
-<input type="text" id="phoneOrEmail" name="phoneOrEmail" required
-class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
-placeholder="e.g., 9876543210 or you@example.com" />
-<p class="text-sm text-gray-500 mt-1">Please provide a valid 10-digit phone number or email address.</p>
-</div>
-<!-- Message -->
-<div>
-<label for="message" class="block text-gray-700 font-medium mb-2">Message *</label>
-<textarea id="message" name="message" rows="4" required
-class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
-placeholder="Type your message here..."></textarea>
-</div>
-<!-- Submit Button -->
-<button type="submit" class="btn-primary w-full text-white px-6 py-3 rounded-lg font-medium shadow-md">
-Send Message
-</button>
-</form>
-</div>
-</div>
-</div>
-</section>
+    <!-- Load Navbar & Footer -->
+    <script>
+        // Fade in animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-<!-- Footer Placeholder -->
-<div id="footer-container"></div>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
 
-<!-- Load Navbar & Footer -->
-<script>
-fetch('navbar.html')
-.then(response => {
-if (!response.ok) throw new Error('Navbar not found');
-return response.text();
-})
-.then(data => {
-document.getElementById('navbar-container').innerHTML = data;
-return fetch('footer.html');
-})
-.then(response => {
-if (!response.ok) throw new Error('Footer not found');
-return response.text();
-})
-.then(data => {
-document.getElementById('footer-container').innerHTML = data;
-initPageScripts();
-})
-.catch(err => {
-console.error('Component load error:', err);
-if (!document.getElementById('navbar-container').innerHTML)
-document.getElementById('navbar-container').innerHTML =
-'<nav class="fixed w-full py-4 bg-white shadow-sm text-center">Navigation failed.</nav>';
-if (!document.getElementById('footer-container').innerHTML)
-document.getElementById('footer-container').innerHTML =
-'<footer class="bg-dark text-white py-6 text-center">Footer failed.</footer>';
-});
+        // Observe all fade-in and stagger elements
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in, .stagger-item').forEach(el => {
+                observer.observe(el);
+            });
+        });
 
-// Validation and form submission
-function validatePhoneOrEmail(value) {
-const phoneRegex = /^[6-9]\d{9}$/; // 10-digit Indian mobile
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-return phoneRegex.test(value) || emailRegex.test(value);
-}
+        fetch('navbar.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Navbar not found');
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html');
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Footer not found');
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                initPageScripts();
+            })
+            .catch(err => {
+                console.error('Component load error:', err);
+                if (!document.getElementById('navbar-container').innerHTML)
+                    document.getElementById('navbar-container').innerHTML =
+                        '<nav class="fixed w-full py-4 bg-white shadow-sm text-center">Navigation failed.</nav>';
+                if (!document.getElementById('footer-container').innerHTML)
+                    document.getElementById('footer-container').innerHTML =
+                        '<footer class="bg-dark text-white py-6 text-center">Footer failed.</footer>';
+            });
 
-function initPageScripts() {
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-if (mobileMenuButton && mobileMenu) {
-mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
-}
+        // Validation and form submission
+        function validatePhoneOrEmail(value) {
+            const phoneRegex = /^[6-9]\d{9}$/; // 10-digit Indian mobile
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return phoneRegex.test(value) || emailRegex.test(value);
+        }
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
-e.preventDefault();
-const targetId = this.getAttribute('href');
-if (targetId === '#') return;
-const target = document.querySelector(targetId);
-if (target) {
-window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
-}
-});
-});
+        function initPageScripts() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+                mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+            }
 
-const navbar = document.getElementById('navbar');
-if (navbar) {
-const handleScroll = () => navbar.classList.toggle('navbar-scrolled', window.scrollY > 50);
-window.addEventListener('scroll', handleScroll);
-handleScroll();
-}
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                    }
+                });
+            });
 
-// Handle contact form submission
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-contactForm.addEventListener('submit', async function(e) {
-e.preventDefault();
-const name = document.getElementById('name').value.trim();
-const phoneOrEmail = document.getElementById('phoneOrEmail').value.trim();
-const message = document.getElementById('message').value.trim();
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                const handleScroll = () => navbar.classList.toggle('navbar-scrolled', window.scrollY > 50);
+                window.addEventListener('scroll', handleScroll);
+                handleScroll();
+            }
 
-if (!validatePhoneOrEmail(phoneOrEmail)) {
-alert('Please enter a valid 10-digit Indian phone number (starting with 6-9) or a valid email address.');
-return;
-}
+            // Handle contact form submission
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('name').value.trim();
+                    const phoneOrEmail = document.getElementById('phoneOrEmail').value.trim();
+                    const message = document.getElementById('message').value.trim();
 
-const formData = { name, contact: phoneOrEmail, message };
+                    if (!validatePhoneOrEmail(phoneOrEmail)) {
+                        alert('Please enter a valid 10-digit Indian phone number (starting with 6-9) or a valid email address.');
+                        return;
+                    }
 
-try {
-// 🔁 REPLACE THIS URL WITH YOUR ACTUAL WEBHOOK
-const response = await fetch('https://n8n.arngct.org/webhook/senddata', {
-method: 'POST',
-headers: {
-'Content-Type': 'application/json'
-},
-body: JSON.stringify(formData)
-});
+                    const formData = { name, contact: phoneOrEmail, message };
 
-if (response.ok) {
-alert('Thank you! Your message has been sent successfully.');
-contactForm.reset();
-} else {
-alert('Oops! Something went wrong. Please try again later.');
-}
-} catch (error) {
-console.error('Error submitting form:', error);
-alert('Failed to send your message. Please check your connection and try again.');
-}
-});
-}
-}
-</script>
+                    try {
+                        const response = await fetch('https://n8n.arngct.org/webhook/senddata', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(formData)
+                        });
+
+                        if (response.ok) {
+                            window.location.href = 'thank-you.html';
+                        } else {
+                            alert('Oops! Something went wrong. Please try again later.');
+                        }
+                    } catch (error) {
+                        console.error('Error submitting form:', error);
+                        alert('Failed to send your message. Please check your connection and try again.');
+                    }
+                });
+            }
+        }
+    </script>
 </body>
 </html>
