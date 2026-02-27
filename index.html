@@ -390,15 +390,7 @@
                             <p class="text-gray-600">Monday–Friday: 9AM – 6PM</p>
                         </div>
                     </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="bg-green-100 p-4 rounded-xl">
-                            <i class="fas fa-phone text-green-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg">Phone</h4>
-                            <p class="text-gray-600">+91 98765 43210</p>
-                        </div>
-                    </div>
+
                 </div>
                 
                 <!-- Right: Contact Form -->
@@ -556,7 +548,21 @@
                         });
 
                         if (response.ok) {
-                            window.location.href = 'thank-you.html';
+                            // Show inline success message
+                            const successMessage = document.createElement('div');
+                            successMessage.className = 'bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-4';
+                            successMessage.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Thank you for your feedback! We have received your message and will get back to you soon.';
+                            
+                            // Insert before the form
+                            contactForm.parentNode.insertBefore(successMessage, contactForm);
+                            
+                            // Reset the form
+                            contactForm.reset();
+                            
+                            // Remove success message after 5 seconds
+                            setTimeout(() => {
+                                successMessage.remove();
+                            }, 5000);
                         } else {
                             alert('Oops! Something went wrong. Please try again later.');
                         }
