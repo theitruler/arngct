@@ -37,6 +37,8 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     
     <!-- Custom Tailwind Config -->
     <script>
@@ -47,11 +49,20 @@
                         primary: '#4f46e5',
                         secondary: '#7c3aed',
                         accent: '#ec4899',
+                        success: '#10b981',
+                        warning: '#f59e0b',
                         light: '#f9fafb',
                         dark: '#1e293b'
                     },
                     fontFamily: {
-                        sans: ['Poppins', 'sans-serif']
+                        'display': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'Poppins', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'bounce-slow': 'bounce 3s infinite'
                     }
                 }
             }
@@ -65,55 +76,50 @@
     <!-- Navbar -->
     <div id="navbar-container"></div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-bg min-h-screen flex items-center relative">
-        <!-- Decorative Elements -->
-        <div class="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"></div>
-        <div class="absolute bottom-40 right-20 w-32 h-32 bg-secondary/10 rounded-full blur-xl"></div>
+    <!-- Hero Section with Background Image -->
+    <section id="home" class="relative min-h-screen flex items-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&h=1080&fit=crop" 
+                 alt="Hero Background" 
+                 class="w-full h-full object-cover">
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/80 via-purple-900/70 to-pink-900/80"></div>
+        </div>
         
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-2xl animate-float"></div>
+        <div class="absolute bottom-40 right-20 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-float" style="animation-delay: 2s;"></div>
+        
+        <!-- Content -->
         <div class="container mx-auto px-4 py-20 relative z-10">
-            <div class="max-w-3xl mx-auto text-center">
-                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6 fade-in">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="inline-block px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium mb-6 fade-in backdrop-blur-sm">
                     <i class="fas fa-heart mr-2"></i>Making a Difference Since 2025
                 </span>
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in fade-in-delay-1">
-                    Building a <span class="text-gradient">Better Future</span> Together
+                <h1 class="text-4xl md:text-7xl font-bold mb-6 fade-in fade-in-delay-1 font-display text-white">
+                    Building a <span class="text-white">Better</span>
+                    <br><span class="text-white">Future</span> Together
                 </h1>
-                <p class="text-xl text-gray-600 mb-10 fade-in fade-in-delay-2">
-                    Join us in creating positive change for communities in need around the world. 
-                    Every contribution brings hope and transforms lives.
+                <p class="text-xl md:text-2xl text-white/90 leading-relaxed mb-8 fade-in fade-in-delay-2 font-light">
+                    Join us in creating impactful change for communities in need around the world. 
+                    Every contribution brings hope and transforms lives through sustainable programs.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 fade-in fade-in-delay-3">
-                    <a href="#donate" class="btn-primary text-white px-8 py-4 rounded-full font-medium shadow-lg inline-block">
-                        <i class="fas fa-heart mr-2"></i>Donate Now
+                <div class="flex flex-col sm:flex-row justify-center gap-6 fade-in fade-in-delay-3">
+                    <a href="#donate" class="bg-white text-indigo-600 px-10 py-5 rounded-full font-semibold shadow-2xl inline-flex items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-3xl">
+                        <i class="fas fa-heart mr-3 text-lg"></i>Donate Now
                     </a>
-                    <a href="#programs" class="bg-white text-primary px-8 py-4 rounded-full font-medium shadow-lg hover:bg-gray-50 transition-all hover:-translate-y-1 inline-block">
-                        <i class="fas fa-hands-helping mr-2"></i>Our Programs
+                    <a href="programs.html" class="bg-white/10 text-white border-2 border-white/30 px-10 py-5 rounded-full font-semibold backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 inline-flex items-center justify-center">
+                        <i class="fas fa-hands-helping mr-3 text-lg"></i>Our Programs
                     </a>
-                </div>
-                
-                <!-- Stats -->
-                <div class="grid grid-cols-3 gap-6 mt-16 max-w-lg mx-auto fade-in fade-in-delay-4">
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-primary stat-number">10K+</div>
-                        <div class="text-gray-500 text-sm">Lives Impacted</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-secondary stat-number">5+</div>
-                        <div class="text-gray-500 text-sm">Programs</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-accent stat-number">100%</div>
-                        <div class="text-gray-500 text-sm">Transparency</div>
-                    </div>
                 </div>
             </div>
         </div>
         
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
-            <a href="#programs" class="text-gray-400 hover:text-primary transition-colors">
-                <i class="fas fa-chevron-down text-2xl"></i>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <a href="#programs" class="text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-1">
+                <i class="fas fa-chevron-down text-3xl animate-bounce"></i>
             </a>
         </div>
     </section>
@@ -126,112 +132,137 @@
     </div>
 
     <!-- Our Programs Section -->
-    <section id="programs" class="section bg-gray-50">
         <div class="container mx-auto">
             <div class="text-center mb-16">
-                <span class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+                <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 fade-in">
                     <i class="fas fa-star mr-2"></i>What We Do
                 </span>
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Programs</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
-                    We run diverse initiatives focused on education, healthcare, sustainable development, heritage conservation, and community volunteering.
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 fade-in fade-in-delay-1 font-display">Our Transformative <span class="text-gradient bg-gradient-to-r from-primary to-accent">Programs</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary via-secondary to-accent mx-auto rounded-full mb-4"></div>
+                <p class="mt-4 text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed fade-in fade-in-delay-2">
+                    We run diverse, impactful initiatives focused on <span class="font-medium text-dark">education</span>, <span class="font-medium text-dark">healthcare</span>, <span class="font-medium text-dark">sustainable development</span>, and <span class="font-medium text-dark">community empowerment</span>.
+                    Each program is designed to create lasting positive change.
                 </p>
             </div>
             
-            <!-- Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Enhanced Program Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                 
                 <!-- 1. Education For All -->
-                <div class="program-card card-hover bg-white p-8 rounded-2xl shadow-sm stagger-item">
-                    <div class="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center mb-5">
-                        <i class="fas fa-book-open text-primary text-2xl"></i>
+                <div class="program-card card-hover bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-gray-100/50 stagger-item relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center mb-5 shadow-lg">
+                        <i class="fas fa-book-open text-blue-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Education For All</h3>
-                    <p class="text-gray-600">
-                        Providing quality education to underprivileged children through school construction,
-                        teacher training, and scholarship programs.
+                    <h3 class="text-xl font-bold mb-3 text-dark">Education For All</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Providing quality education to underprivileged children through innovative learning programs,
+                        teacher training initiatives, and comprehensive scholarship support.
                     </p>
-                    <div class="mt-4 pt-4 border-t border-gray-100">
-                        <span class="text-sm text-primary font-medium"><i class="fas fa-arrow-right mr-1"></i>Learn More</span>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <a href="programs.html" class="text-primary font-medium inline-flex items-center group hover:text-blue-700 transition-colors">
+                            <i class="fas fa-arrow-right mr-2 group-hover:translate-x-1 transition-transform"></i>Learn More
+                        </a>
                     </div>
                 </div>
 
                 <!-- 2. Healthcare Access -->
-                <div class="program-card card-hover bg-white p-8 rounded-2xl shadow-sm stagger-item">
-                    <div class="w-16 h-16 rounded-2xl bg-pink-100 flex items-center justify-center mb-5">
-                        <i class="fas fa-heartbeat text-accent text-2xl"></i>
+                <div class="program-card card-hover bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-gray-100/50 stagger-item relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 to-rose-600"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-100 to-rose-200 flex items-center justify-center mb-5 shadow-lg">
+                        <i class="fas fa-heartbeat text-pink-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Healthcare Access</h3>
-                    <p class="text-gray-600">
-                        Free medical camps, emergency healthcare support, and awareness programs 
-                        for underserved communities.
+                    <h3 class="text-xl font-bold mb-3 text-dark">Healthcare Access</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Free medical camps, essential healthcare support, and comprehensive awareness programs 
+                        serving underserved communities across Bangalore and rural areas.
                     </p>
-                    <div class="mt-4 pt-4 border-t border-gray-100">
-                        <span class="text-sm text-primary font-medium"><i class="fas fa-arrow-right mr-1"></i>Learn More</span>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <a href="programs.html" class="text-pink-600 font-medium inline-flex items-center group hover:text-pink-700 transition-colors">
+                            <i class="fas fa-arrow-right mr-2 group-hover:translate-x-1 transition-transform"></i>Learn More
+                        </a>
                     </div>
                 </div>
 
-                <!-- 3. Sustainable Development -->
-                <div class="program-card card-hover bg-white p-8 rounded-2xl shadow-sm stagger-item">
-                    <div class="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center mb-5">
+                <!-- 3. Women Empowerment -->
+                <div class="program-card card-hover bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-gray-100/50 stagger-item relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-rose-500 to-pink-600"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-rose-100 to-pink-200 flex items-center justify-center mb-5 shadow-lg">
+                        <i class="fas fa-female text-rose-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-dark">Women Empowerment</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Comprehensive skills training, entrepreneurship support, and empowerment programs 
+                        designed to uplift women and girls in rural communities.
+                    </p>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <a href="programs.html" class="text-rose-600 font-medium inline-flex items-center group hover:text-rose-700 transition-colors">
+                            <i class="fas fa-arrow-right mr-2 group-hover:translate-x-1 transition-transform"></i>Learn More
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. Heritage Conservation -->
+                <div class="program-card card-hover bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-gray-100/50 stagger-item relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-500 to-orange-600"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-100 to-orange-200 flex items-center justify-center mb-5 shadow-lg">
+                        <i class="fas fa-landmark text-amber-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-dark">Heritage Conservation</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Preserving our cultural heritage through restoration of ancient monuments, temples, 
+                        and historical sites across Bangalore and Mysore regions.
+                    </p>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <a href="programs.html" class="text-amber-600 font-medium inline-flex items-center group hover:text-amber-700 transition-colors">
+                            <i class="fas fa-arrow-right mr-2 group-hover:translate-x-1 transition-transform"></i>Learn More
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 5. Volunteering -->
+                <div class="program-card card-hover bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-gray-100/50 stagger-item relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-600"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-100 to-purple-200 flex items-center justify-center mb-5 shadow-lg">
+                        <i class="fas fa-hands-helping text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-dark">Volunteering Programs</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Join our dedicated team of volunteers. Participate in impactful field visits, 
+                        educational drives, and transformative community outreach programs.
+                    </p>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <a href="index.html#contact" class="text-indigo-600 font-medium inline-flex items-center group hover:text-indigo-700 transition-colors">
+                            <i class="fas fa-arrow-right mr-2 group-hover:translate-x-1 transition-transform"></i>Join Us
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 6. Sustainable Development -->
+                <div class="program-card card-hover bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-gray-100/50 stagger-item relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-emerald-600"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-100 to-emerald-200 flex items-center justify-center mb-5 shadow-lg">
                         <i class="fas fa-leaf text-green-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Sustainable Development</h3>
-                    <p class="text-gray-600">
-                        Environmental conservation projects, sustainable farming practices, 
-                        and clean energy initiatives for rural communities.
+                    <h3 class="text-xl font-bold mb-3 text-dark">Sustainable Development</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Environmental conservation initiatives, sustainable agricultural practices, 
+                        and clean energy solutions empowering rural communities.
                     </p>
-                    <div class="mt-4 pt-4 border-t border-gray-100">
-                        <span class="text-sm text-primary font-medium"><i class="fas fa-arrow-right mr-1"></i>Learn More</span>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <a href="programs.html" class="text-green-600 font-medium inline-flex items-center group hover:text-green-700 transition-colors">
+                            <i class="fas fa-arrow-right mr-2 group-hover:translate-x-1 transition-transform"></i>Learn More
+                        </a>
                     </div>
                 </div>
 
-                <!-- 4. Historical Place Restoration -->
-                <div class="program-card card-hover bg-white p-8 rounded-2xl shadow-sm stagger-item">
-                    <div class="w-16 h-16 rounded-2xl bg-yellow-100 flex items-center justify-center mb-5">
-                        <i class="fas fa-landmark text-yellow-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Historical Restoration</h3>
-                    <p class="text-gray-600">
-                        Preserving our cultural heritage by restoring ancient monuments, temples, 
-                        and historical sites for future generations.
-                    </p>
-                    <div class="mt-4 pt-4 border-t border-gray-100">
-                        <span class="text-sm text-primary font-medium"><i class="fas fa-arrow-right mr-1"></i>Learn More</span>
-                    </div>
-                </div>
-
-                <!-- 5. Volunteering Opportunities -->
-                <div class="program-card card-hover bg-white p-8 rounded-2xl shadow-sm stagger-item">
-                    <div class="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center mb-5">
-                        <i class="fas fa-hands-helping text-secondary text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Volunteering</h3>
-                    <p class="text-gray-600">
-                        Join our team of dedicated volunteers. Participate in field visits, 
-                        teaching drives, and community outreach programs.
-                    </p>
-                    <div class="mt-4 pt-4 border-t border-gray-100">
-                        <span class="text-sm text-primary font-medium"><i class="fas fa-arrow-right mr-1"></i>Join Us</span>
-                    </div>
-                </div>
-
-                <!-- 6. Women Empowerment -->
-                <div class="program-card card-hover bg-white p-8 rounded-2xl shadow-sm stagger-item">
-                    <div class="w-16 h-16 rounded-2xl bg-rose-100 flex items-center justify-center mb-5">
-                        <i class="fas fa-female text-rose-500 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Women Empowerment</h3>
-                    <p class="text-gray-600">
-                        Skills training, entrepreneurship support, and awareness programs 
-                        to empower women and girls in rural communities.
-                    </p>
-                    <div class="mt-4 pt-4 border-t border-gray-100">
-                        <span class="text-sm text-primary font-medium"><i class="fas fa-arrow-right mr-1"></i>Learn More</span>
-                    </div>
-                </div>
-
+            </div>
+            
+            <!-- View All Programs Button -->
+            <div class="text-center mt-12 fade-in">
+                <a href="programs.html" class="inline-block bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                    <i class="fas fa-eye mr-2"></i>View All Programs
+                </a>
             </div>
         </div>
     </section>
@@ -244,81 +275,87 @@
     </div>
 
     <!-- Donate Section -->
-    <section id="donate" class="section bg-white">
+    <section id="donate" class="section bg-gradient-to-br from-white via-gray-50/50 to-primary/5">
         <div class="container mx-auto">
             <div class="text-center mb-16">
-                <span class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+                <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 fade-in">
                     <i class="fas fa-hand-holding-heart mr-2"></i>Support Our Mission
                 </span>
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Make a Difference Today</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
-                    Your donation can change lives. Every contribution, big or small, helps us continue our mission.
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 fade-in fade-in-delay-1 font-display">Make a <span class="text-gradient bg-gradient-to-r from-primary to-accent">Difference</span> Today</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary via-secondary to-accent mx-auto rounded-full mb-4"></div>
+                <p class="mt-4 text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed fade-in fade-in-delay-2">
+                    Your donation has the power to transform lives. Every contribution, regardless of size, helps us continue our 
+                    mission of creating sustainable positive change in communities.
                 </p>
             </div>
             
-            <div class="max-w-4xl mx-auto glass-card rounded-2xl p-6 md:p-10">
-                <div class="text-center space-y-8">
+            <div class="max-w-5xl mx-auto glass-card rounded-3xl p-8 md:p-12 shadow-2xl border border-white/20 backdrop-blur-lg bg-white/95">
+                <div class="text-center space-y-10">
                     <!-- Why Donate -->
                     <div>
-                        <h3 class="text-2xl font-bold mb-6"><i class="fas fa-question-circle text-primary mr-2"></i>Why Donate?</h3>
-                        <ul class="space-y-4 inline-block text-left">
-                            <li class="flex items-start">
-                                <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3 flex-shrink-0">
-                                    <i class="fas fa-check text-green-600 text-sm"></i>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-8 text-dark">
+                            <i class="fas fa-question-circle text-primary mr-3"></i>Why Donate?
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                            <div class="flex items-center p-4 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-100">
+                                <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-check text-green-600 text-lg"></i>
                                 </div>
-                                <span>100% of your donation goes directly to programs</span>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3 flex-shrink-0">
-                                    <i class="fas fa-check text-green-600 text-sm"></i>
+                                <span class="font-medium text-dark">100% Direct Impact</span>
+                            </div>
+                            <div class="flex items-center p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-chart-bar text-blue-600 text-lg"></i>
                                 </div>
-                                <span>Transparent reporting on fund utilization</span>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3 flex-shrink-0">
-                                    <i class="fas fa-check text-green-600 text-sm"></i>
+                                <span class="font-medium text-dark">Transparent Reporting</span>
+                            </div>
+                            <div class="flex items-center p-4 bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl border border-purple-100">
+                                <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-file-invoice-dollar text-purple-600 text-lg"></i>
                                 </div>
-                                <span>Tax benefits under Section 80G for Indian donors</span>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3 flex-shrink-0">
-                                    <i class="fas fa-check text-green-600 text-sm"></i>
+                                <span class="font-medium text-dark">80G Tax Benefits</span>
+                            </div>
+                            <div class="flex items-center p-4 bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl border border-orange-100">
+                                <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope-open-text text-orange-600 text-lg"></i>
                                 </div>
-                                <span>Regular updates on impact of your contribution</span>
-                            </li>
-                        </ul>
+                                <span class="font-medium text-dark">Impact Updates</span>
+                            </div>
+                        </div>
                     </div>
                     
                     <!-- Trust Badges -->
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <div class="trust-card px-6 py-3 flex items-center">
-                            <i class="fas fa-shield-alt text-primary mr-2"></i>
-                            <span class="font-medium">Secure Donation</span>
-                        </div>
-                        <div class="trust-card px-6 py-3 flex items-center">
-                            <i class="fas fa-file-invoice-dollar text-secondary mr-2"></i>
-                            <span class="font-medium">80G Tax Benefit</span>
-                        </div>
-                        <div class="trust-card px-6 py-3 flex items-center">
-                            <i class="fas fa-chart-line text-accent mr-2"></i>
-                            <span class="font-medium">100% Transparent</span>
+                    <div>
+                        <h4 class="font-bold text-lg mb-6 text-dark">Our Commitment to You</h4>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <div class="trust-card px-6 py-3 flex items-center bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl">
+                                <i class="fas fa-shield-alt text-blue-600 mr-3 text-lg"></i>
+                                <span class="font-medium text-dark">Secure Donation</span>
+                            </div>
+                            <div class="trust-card px-6 py-3 flex items-center bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl">
+                                <i class="fas fa-file-contract text-green-600 mr-3 text-lg"></i>
+                                <span class="font-medium text-dark">80G Tax Benefit</span>
+                            </div>
+                            <div class="trust-card px-6 py-3 flex items-center bg-gradient-to-r from-purple-50 to-violet-50 border border-purple-200 rounded-xl">
+                                <i class="fas fa-chart-line text-purple-600 mr-3 text-lg"></i>
+                                <span class="font-medium text-dark">100% Transparent</span>
+                            </div>
                         </div>
                     </div>
                     
                     <!-- Other Ways to Support -->
                     <div>
-                        <h4 class="font-bold text-lg mb-4">Other Ways to Support</h4>
-                        <div class="flex flex-wrap justify-center gap-3">
+                        <h4 class="font-bold text-xl mb-6 text-dark">Other Ways to Support</h4>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
                             <a href="https://docs.google.com/forms/d/e/1FAIpQLSejuqp1H8-rwHplarFkw-8Vu_XSP5A6-t_vDDu3QeLkLRdq5w/viewform?usp=publish-editor" 
-                               class="bg-white px-5 py-2 rounded-full border-2 border-gray-200 hover:border-primary hover:text-primary transition-all font-medium">
+                               class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                                 <i class="fas fa-hands-helping mr-2"></i>Become a Volunteer
                             </a>
-                            <a href="#contact" class="bg-white px-5 py-2 rounded-full border-2 border-gray-200 hover:border-secondary hover:text-secondary transition-all font-medium">
+                            <a href="#contact" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-accent to-pink-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                                 <i class="fas fa-bullhorn mr-2"></i>Fundraise
                             </a>
-                            <a href="#contact" class="bg-white px-5 py-2 rounded-full border-2 border-gray-200 hover:border-accent hover:text-accent transition-all font-medium">
-                                <i class="fas fa-handshake mr-2"></i>Corporate Partnership
+                            <a href="#contact" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-success to-emerald-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <i class="fas fa-handshake mr-2"></i>Partner with Us
                             </a>
                         </div>
                     </div>
@@ -326,11 +363,11 @@
                     <!-- Donate Now Button -->
                     <div class="mt-8">
                         <a href="https://rzp.io/rzp/QfLet5M3" target="_blank" 
-                           class="btn-primary text-white px-10 py-4 rounded-full font-medium shadow-lg inline-block text-lg">
-                            <i class="fas fa-heart mr-2"></i>Donate Now
+                           class="btn-primary text-white px-12 py-6 rounded-full font-semibold shadow-2xl inline-flex items-center justify-center text-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-3xl">
+                            <i class="fas fa-heart mr-3 text-xl"></i>Donate Now
                         </a>
-                        <p class="text-gray-500 text-sm mt-4">
-                            <i class="fas fa-lock mr-1"></i>Secure payment via Razorpay
+                        <p class="text-gray-500 text-sm mt-4 flex items-center justify-center">
+                            <i class="fas fa-lock mr-2"></i>Secure payment via Razorpay • 100% secure transactions
                         </p>
                     </div>
                 </div>
@@ -390,7 +427,18 @@
                             <p class="text-gray-600">Monday–Friday: 9AM – 6PM</p>
                         </div>
                     </div>
-
+                    
+                    <!-- Embedded Map -->
+                    <div class="mt-6 rounded-xl overflow-hidden h-48">
+                        <iframe 
+                            src="https://www.google.com/maps?q=13.029247,77.654004&z=15&output=embed" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
                 </div>
                 
                 <!-- Right: Contact Form -->
