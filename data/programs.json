@@ -9,16 +9,6 @@
       "icon": "fas fa-leaf",
       "location": "Bangalore",
       "date": "2025 - Upcoming"
-    },
-    {
-      "id": 2,
-      "program_name": "Computer Skill Development Class",
-      "short_description": "Empowering youth with essential computer skills for the digital future.",
-      "type": "upcoming",
-      "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=250&fit=crop",
-      "icon": "fas fa-laptop",
-      "location": "Bangalore",
-      "date": "2025 - Upcoming"
     }
   ]
 }
