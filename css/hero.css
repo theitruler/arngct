@@ -1,0 +1,29 @@
+/* Homepage hero: keep the image and callout inside their own layout column. */
+.hero-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(360px, .82fr);
+  gap: 64px;
+}
+
+.hero-visual {
+  min-width: 0;
+  padding: 34px 0;
+  overflow: visible;
+}
+
+.hero .image-card {
+  inset: 34px 0;
+  clip-path: none;
+  border: 9px solid rgba(242, 175, 53, .9);
+}
+
+.hero .impact-note {
+  left: 24px;
+  bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 0; }
+  .hero-visual { padding: 0; overflow: hidden; }
+  .hero .image-card { inset: 0; border: 0; }
+  .hero .impact-note { left: 0; }
+}

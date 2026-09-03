@@ -1,14 +1,1 @@
-{
-  "programs": [
-    {
-      "id": 1,
-      "program_name": "Planting Trees",
-      "short_description": "Join us in planting trees to create a greener environment and combat climate change.",
-      "type": "upcoming",
-      "image": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&h=250&fit=crop",
-      "icon": "fas fa-leaf",
-      "location": "Bangalore",
-      "date": "2025 - Upcoming"
-    }
-  ]
-}
+{"programs":[{"id":"tree-planting","title":"Planting trees, growing stewardship","summary":"A community tree-planting initiative designed to create greener shared spaces and spark long-term care for the local environment.","status":"upcoming","location":"Bengaluru","date":"Dates to be announced","image":"https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=360&q=85"}]}
