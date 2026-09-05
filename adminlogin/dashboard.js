@@ -6,17 +6,22 @@
   const addEvent = $('#add-event-button'), eventDialog = $('#event-dialog'), eventForm = $('#event-form');
   const formStatus = $('#event-form-status'), saveEvent = $('#save-event-button');
   const raceOptions = $('#race-options'), addRaceType = $('#add-race-type');
+  const participantFilters = document.createElement('div');
+  participantFilters.className = 'participant-filters';
+  participantFilters.hidden = true;
+  participantFilters.innerHTML = '<span>Filter registrations</span><button class="is-active" type="button" data-category="all">All</button><button type="button" data-category="reddit">Reddit</button><button type="button" data-category="real_meetup">Real meetup</button><button type="button" data-category="virtual">Virtual</button>';
+  status.insertAdjacentElement('afterend', participantFilters);
   const imageUrlInput = eventForm.elements.namedItem('image_url');
   imageUrlInput.removeAttribute('required');
   imageUrlInput.closest('label').insertAdjacentHTML('afterend', '<label class="span-two">Or upload an event image<input id="event-image-file" type="file" accept="image/jpeg,image/png,image/webp"><small>PNG, JPEG, or WebP · maximum 5 MB</small></label>');
-  document.head.insertAdjacentHTML('beforeend', '<style>.stride-toggle{justify-content:space-between}.stride-toggle span{transition:transform .2s}.stride-toggle[aria-expanded="false"] span{transform:rotate(-90deg)}.stride-children{display:grid;gap:3px;margin:4px 0 0 15px;padding-left:10px;border-left:1px solid #34425d}.stride-children[hidden]{display:none}.stride-children .nav-item{min-height:38px;font-size:13px}</style>');
+  document.head.insertAdjacentHTML('beforeend', '<style>.stride-toggle{justify-content:space-between}.stride-toggle span{transition:transform .2s}.stride-toggle[aria-expanded="false"] span{transform:rotate(-90deg)}.stride-children{display:grid;gap:3px;margin:4px 0 0 15px;padding-left:10px;border-left:1px solid #34425d}.stride-children[hidden]{display:none}.stride-children .nav-item{min-height:38px;font-size:13px}.participant-filters{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin:0 0 15px}.participant-filters span{margin-right:4px;color:#6d7482;font-size:12px;font-weight:700}.participant-filters button{min-height:30px;border:1px solid #d9deea;border-radius:999px;padding:0 10px;background:#fff;color:#4f596b;font-size:12px;font-weight:700}.participant-filters button.is-active{border-color:#3659e3;background:#edf1ff;color:#3659e3}</style>');
   const appNav = $('.app-nav');
   appNav.innerHTML = '<button id="stride-toggle" class="nav-item stride-toggle" type="button" aria-expanded="true" aria-controls="stride-children"><span><span class="nav-icon">◈</span> Stride</span><span aria-hidden="true">⌄</span></button><div id="stride-children" class="stride-children"><button class="nav-item is-active" type="button" data-table="events"><span class="nav-icon">◫</span> Events</button><button class="nav-item" type="button" data-table="participants"><span class="nav-icon">◎</span> Participants</button><button class="nav-item" type="button" data-table="submissions"><span class="nav-icon">✓</span> Submissions</button></div>';
   const strideToggle = $('#stride-toggle'), strideChildren = $('#stride-children');
   const navItems = [...document.querySelectorAll('.nav-item[data-table]')];
   const labels = { events: 'Events', participants: 'Participants', submissions: 'Submissions' };
   const descriptions = { events: 'Create and manage your running events.', participants: 'View everyone registered for your events.', submissions: 'Review submitted activities and make a decision.' };
-  let client, currentTable = 'events', rows = [];
+  let client, currentTable = 'events', rows = [], participantCategory = 'all';
 
   const configured = () => /^https:\/\/.+\.supabase\.co\/?$/i.test(config.supabaseUrl || '') && /^(sb_publishable_|eyJ)/.test(config.supabasePublishableKey || '') && config.strideDataUrl;
   const loginUrl = 'index.html';
@@ -55,14 +60,16 @@
     } else if (currentTable === 'submissions') {
       tableWrap.innerHTML = `<table class="data-table"><thead><tr><th>Participant</th><th>Event</th><th>Activity</th><th>Submitted</th><th>Status</th><th>Decision</th></tr></thead><tbody>${rows.map((row) => { const participant=row.participants||{}; return `<tr><td><span class="cell-title">${escape(participant.name)}</span><span class="cell-subtitle">${escape(participant.email)}</span></td><td>${escape(participant.events?.title)}</td><td>${row.activity_url ? `<a href="${escape(row.activity_url)}" target="_blank" rel="noopener">Open activity</a>` : '—'}</td><td>${new Date(row.created_at).toLocaleDateString()}</td><td>${pill(row.status)}</td><td>${button('Approve','submission-status',row.id,'approve')}${button('Reject','submission-status',row.id,'reject')}</td></tr>`; }).join('')}</tbody></table>`;
     } else {
-      tableWrap.innerHTML = `<table class="data-table"><thead><tr><th>Participant</th><th>Email</th><th>City</th><th>Distance</th><th>Payment</th><th>Registered</th></tr></thead><tbody>${rows.map((row) => `<tr><td><span class="cell-title">${escape(row.name)}</span></td><td>${escape(row.email)}</td><td>${escape(row.city)}</td><td>${escape(row.distance_category)}</td><td>${pill(row.payment_status)}</td><td>${new Date(row.created_at).toLocaleDateString()}</td></tr>`).join('')}</tbody></table>`;
+      const filteredRows = participantCategory === 'all' ? rows : rows.filter((row) => row.events?.category === participantCategory);
+      if (!filteredRows.length) { tableWrap.innerHTML = '<div class="empty-state">No participants match this filter.</div>'; tableWrap.hidden = false; return; }
+      tableWrap.innerHTML = `<table class="data-table"><thead><tr><th>Participant</th><th>Event</th><th>Category</th><th>Email</th><th>City</th><th>Payment</th><th>Registered</th></tr></thead><tbody>${filteredRows.map((row) => `<tr><td><span class="cell-title">${escape(row.name)}</span></td><td>${escape(row.events?.title)}</td><td>${pill(row.events?.category || 'unassigned')}</td><td>${escape(row.email)}</td><td>${escape(row.city)}</td><td>${pill(row.payment_status)}</td><td>${new Date(row.created_at).toLocaleDateString()}</td></tr>`).join('')}</tbody></table>`;
     }
     tableWrap.hidden = false;
   };
 
   const load = async (table = currentTable) => {
     currentTable = table; title.textContent = labels[table]; description.textContent = descriptions[table];
-    addEvent.hidden = table !== 'events'; navItems.forEach((item) => item.classList.toggle('is-active', item.dataset.table === table));
+    addEvent.hidden = table !== 'events'; participantFilters.hidden = table !== 'participants'; navItems.forEach((item) => item.classList.toggle('is-active', item.dataset.table === table));
     tableWrap.hidden = true; status.classList.remove('is-error'); status.textContent = `Loading ${labels[table].toLowerCase()}…`; refresh.disabled = true;
     try { const payload = await call('list', { table }); rows = payload.rows || []; render(); status.textContent = `${rows.length} ${rows.length === 1 ? 'record' : 'records'} from the running database.`; }
     catch (error) { status.textContent = error.message; status.classList.add('is-error'); }
@@ -117,6 +124,7 @@
     $('#sign-out-button').addEventListener('click', async () => { await client.auth.signOut(); backToLogin(); });
     strideToggle.addEventListener('click', () => { const expanded = strideToggle.getAttribute('aria-expanded') === 'true'; strideToggle.setAttribute('aria-expanded', String(!expanded)); strideChildren.hidden = expanded; });
     navItems.forEach((item) => item.addEventListener('click', () => load(item.dataset.table)));
+    participantFilters.addEventListener('click', (event) => { const filter = event.target.closest('[data-category]'); if (!filter) return; participantCategory = filter.dataset.category; participantFilters.querySelectorAll('button').forEach((button) => button.classList.toggle('is-active', button === filter)); render(); });
     refresh.addEventListener('click', () => load()); addEvent.addEventListener('click', () => openEvent()); eventForm.addEventListener('submit', (event) => { event.preventDefault(); save(); });
     document.querySelectorAll('[data-close-dialog]').forEach((button) => button.addEventListener('click', () => eventDialog.close())); tableWrap.addEventListener('click', handleTableAction);
     addRaceType.addEventListener('click', () => raceOptions.insertAdjacentHTML('beforeend', raceTypeRow()));
