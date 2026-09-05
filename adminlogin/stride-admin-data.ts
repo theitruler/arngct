@@ -74,7 +74,7 @@ Deno.serve(async (request) => {
       return reply({ url:data.publicUrl },201);
     }
     if (body.action === 'list' && tables.has(String(body.table))) {
-      const query = body.table === 'submissions' ? database.from('submissions').select('*, participants(name,email,events(title))') : body.table === 'events' ? database.from('events').select('*, event_race_options(race_type,distance)') : database.from(String(body.table)).select('*');
+      const query = body.table === 'submissions' ? database.from('submissions').select('*, participants(name,email,events(title))') : body.table === 'events' ? database.from('events').select('*, event_race_options(race_type,distance)') : body.table === 'participants' ? database.from('participants').select('*, events(title,category)') : database.from(String(body.table)).select('*');
       if (body.table === 'events') query.is('deleted_at',null);
       const { data, error } = await query.order('created_at',{ascending:false}); if (error) throw error;
       return reply({ rows:data || [] });
