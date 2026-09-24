@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Explore photos and videos from A.R.N Growth Charitable Trust events, community programs, and shared moments.">
+  <title>Gallery | A.R.N Growth Charitable Trust</title>
+  <link rel="icon" href="favicon.ico"><link rel="stylesheet" href="css/site.css"><link rel="stylesheet" href="css/gallery.css">
+</head>
+<body data-page="gallery">
+  <header class="site-header" data-site-header></header>
+  <main>
+    <section class="gallery-hero"><div class="container gallery-intro">
+      <div><span class="eyebrow">Our community, in focus</span><h1>Small moments.<br><em>Lasting impact.</em></h1><p>A glimpse into the people, the purpose, and the moments we share. Explore stories from our events, one frame at a time.</p><a class="gallery-jump" href="#collection">Explore the gallery <span aria-hidden="true">↓</span></a></div>
+      <div class="gallery-motif" aria-hidden="true"><div class="motif-frame frame-back"></div><div class="motif-frame frame-front"><span class="motif-sun"></span><span class="motif-hill"></span><span class="motif-caption">TOGETHER, WE GROW.</span></div><span class="motif-star">✳</span><span class="motif-note">People. Purpose. Possibility.</span></div>
+    </div></section>
+    <section class="gallery-collection container" id="collection" aria-labelledby="collection-title">
+      <div class="collection-heading"><div><span class="eyebrow">The shared album</span><h2 id="collection-title">Moments that bring us together</h2></div><p id="gallery-count" class="gallery-count"></p></div>
+      <div id="gallery-filters" class="gallery-filters" role="group" aria-label="Filter gallery by tag"><button type="button" class="is-active" aria-pressed="true">All images &amp; videos</button></div>
+      <p id="gallery-status" class="gallery-status" role="status">Gathering our moments…</p>
+      <button id="gallery-retry" class="button outline" type="button" hidden>Try again</button>
+      <div id="gallery-grid" class="gallery-grid"></div>
+      <button id="gallery-more" class="button outline gallery-more" type="button" hidden>Show more moments</button>
+      <noscript><p>Please enable JavaScript to browse the gallery.</p></noscript>
+    </section>
+    <section class="gallery-invitation container"><span class="eyebrow">Be part of the next chapter</span><h2>Good things happen<br>when we come together.</h2><a class="button" href="contact.html">Get involved <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="site-footer" data-site-footer></footer>
+  <dialog id="gallery-viewer" class="gallery-viewer" aria-labelledby="viewer-title">
+    <button id="viewer-close" class="viewer-close" type="button" aria-label="Close viewer">×</button>
+    <div id="viewer-media" class="viewer-media"></div>
+    <p id="viewer-message" class="viewer-message" role="status"></p>
+    <div class="viewer-bottom"><div><h2 id="viewer-title" class="sr-only"></h2><p id="viewer-tags"></p></div><div class="viewer-controls"><button id="viewer-prev" type="button" aria-label="Previous item">←</button><span id="viewer-position"></span><button id="viewer-next" type="button" aria-label="Next item">→</button></div></div>
+  </dialog>
+  <script src="js/config.js"></script><script src="js/site.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.111.0/dist/umd/supabase.js"></script>
+  <script src="js/gallery-config.js"></script><script src="js/gallery-data.js"></script><script src="js/gallery.js"></script>
+</body>
+</html>

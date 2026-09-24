@@ -9,4 +9,3 @@ window.ADMIN_LOGIN_CONFIG = {
   strideDataUrl: 'https://kfjoyadtqaxurqifxtqf.supabase.co/functions/v1/stride-admin-data',
   successRedirect: 'dashboard.html'
 };
-

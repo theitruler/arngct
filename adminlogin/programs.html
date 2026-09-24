@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Programs | A.R.N Admin</title><link rel="icon" href="../favicon.ico"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="gallery.css"><link rel="stylesheet" href="programs.css"></head>
+<body><main class="admin-app">
+  <aside class="app-sidebar"><a class="brand" href="dashboard.html"><span class="brand-dot">A</span><span>A.R.N <b>Admin</b></span></a><p class="nav-caption">Workspace</p>
+    <nav class="app-nav" aria-label="Admin sections"><a class="nav-item" href="dashboard.html"><span class="nav-icon">◈</span> Stride <span class="nav-arrow">↗</span></a><a class="nav-item gallery-nav-link" href="gallery.html"><span class="nav-icon">▧</span> Gallery images</a><a class="nav-item is-active programs-nav-link" href="programs.html" aria-current="page"><span class="nav-icon">◷</span> Programs</a></nav>
+    <div class="sidebar-bottom"><p class="nav-caption">Signed in</p><p id="admin-email" class="admin-email">Checking your session…</p><button id="sign-out-button" class="sign-out-button" type="button">Sign out</button></div>
+  </aside>
+  <section class="app-main"><header class="topbar"><div><p class="eyebrow">Website content</p><h1>Programs</h1><p class="gallery-subtitle">Share what’s happening now, and what comes next.</p></div><a class="button button-secondary preview-link" href="../programs.html" target="_blank" rel="noopener">View programs ↗</a></header>
+    <p id="program-admin-status" class="gallery-notice" role="status">Checking your session…</p>
+    <section id="program-workspace" class="workspace-card" hidden><div class="workspace-heading"><div><p class="eyebrow">Our work in action</p><h2>Your programs</h2><p id="program-count"></p></div><div class="program-actions"><button id="refresh-programs" type="button" class="button button-secondary">↻ Refresh</button><button id="add-program" type="button" class="button button-primary">+ New program</button></div></div><div class="library-toolbar"><label for="program-status-filter">Show</label><select id="program-status-filter"><option value="">All programs</option><option value="ongoing">Ongoing</option><option value="upcoming">Upcoming</option><option value="completed">Completed</option></select></div><p id="program-list-status" class="gallery-notice" role="status"></p><div id="admin-programs-list" class="admin-programs-list"></div></section>
+  </section>
+</main>
+<dialog id="program-dialog" class="event-dialog"><form id="program-form"><div class="dialog-heading"><div><p class="eyebrow">Program details</p><h2 id="program-dialog-title">New program</h2></div><button id="close-program" class="close-dialog" type="button" aria-label="Close">×</button></div>
+  <fieldset id="program-fields"><div class="form-grid">
+    <label class="span-two">Program title<input name="title" required maxlength="160" placeholder="e.g. Community learning sessions"></label>
+    <label class="span-two">Description<textarea name="summary" required maxlength="2000" rows="4" placeholder="Tell visitors what the program is about."></textarea></label>
+    <label>Status<select name="status"><option value="ongoing">Ongoing</option><option value="upcoming" selected>Upcoming / future</option><option value="completed">Completed</option></select></label>
+    <label>Visibility<select name="visibility"><option value="published">Published on website</option><option value="draft">Draft — hidden from website</option></select></label>
+    <label>Location<input name="location" maxlength="160" placeholder="e.g. Bengaluru or Online"></label>
+    <label>Date / schedule<input name="schedule" maxlength="160" placeholder="e.g. Every Saturday or October 2026"></label>
+    <label class="span-two">Image URL (optional)<input name="image_url" type="url" placeholder="https://…"></label>
+    <label class="span-two">Or upload an image<input id="program-image" type="file" accept="image/jpeg,image/png,image/webp"><small>JPG, PNG, or WebP · up to 5 MB. A selected file replaces the image URL.</small></label>
+  </div></fieldset>
+  <p id="program-form-status" class="form-status" role="status"></p><div class="dialog-actions"><button id="cancel-program" class="button button-secondary" type="button">Cancel</button><button id="save-program" class="button button-primary" type="submit">Save program</button></div>
+</form></dialog>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.111.0/dist/umd/supabase.js"></script><script src="../js/gallery-config.js"></script><script src="../js/gallery-data.js"></script><script src="../js/programs-data.js"></script><script src="programs.js"></script>
+</body></html>

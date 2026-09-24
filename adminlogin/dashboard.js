@@ -14,14 +14,14 @@
   const imageUrlInput = eventForm.elements.namedItem('image_url');
   imageUrlInput.removeAttribute('required');
   imageUrlInput.closest('label').insertAdjacentHTML('afterend', '<label class="span-two">Or upload an event image<input id="event-image-file" type="file" accept="image/jpeg,image/png,image/webp"><small>PNG, JPEG, or WebP · maximum 5 MB</small></label>');
-  document.head.insertAdjacentHTML('beforeend', '<style>.stride-toggle{justify-content:space-between}.stride-toggle span{transition:transform .2s}.stride-toggle[aria-expanded="false"] span{transform:rotate(-90deg)}.stride-children{display:grid;gap:3px;margin:4px 0 0 15px;padding-left:10px;border-left:1px solid #34425d}.stride-children[hidden]{display:none}.stride-children .nav-item{min-height:38px;font-size:13px}.participant-filters{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin:0 0 15px}.participant-filters span{margin-right:4px;color:#6d7482;font-size:12px;font-weight:700}.participant-filters button{min-height:30px;border:1px solid #d9deea;border-radius:999px;padding:0 10px;background:#fff;color:#4f596b;font-size:12px;font-weight:700}.participant-filters button.is-active{border-color:#3659e3;background:#edf1ff;color:#3659e3}</style>');
+  document.head.insertAdjacentHTML('beforeend', '<style>.stride-toggle{justify-content:space-between}.stride-label{display:flex;align-items:center;gap:12px}.stride-chevron{display:inline-block;transition:transform .2s}.stride-toggle[aria-expanded="false"] .stride-chevron{transform:rotate(-90deg)}.stride-children{display:grid;gap:3px;margin:4px 0 0 15px;padding-left:10px;border-left:1px solid #34425d}.stride-children[hidden]{display:none}.stride-children .nav-item{min-height:38px;font-size:13px}.participant-filters{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin:0 0 15px}.participant-filters span{margin-right:4px;color:#6d7482;font-size:12px;font-weight:700}.participant-filters button{min-height:30px;border:1px solid #d9deea;border-radius:999px;padding:0 10px;background:#fff;color:#4f596b;font-size:12px;font-weight:700}.participant-filters button.is-active{border-color:#3659e3;background:#edf1ff;color:#3659e3}</style>');
   const appNav = $('.app-nav');
-  appNav.innerHTML = '<button id="stride-toggle" class="nav-item stride-toggle" type="button" aria-expanded="true" aria-controls="stride-children"><span><span class="nav-icon">◈</span> Stride</span><span aria-hidden="true">⌄</span></button><div id="stride-children" class="stride-children"><button class="nav-item is-active" type="button" data-table="events"><span class="nav-icon">◫</span> Events</button><button class="nav-item" type="button" data-table="participants"><span class="nav-icon">◎</span> Participants</button><button class="nav-item" type="button" data-table="submissions"><span class="nav-icon">✓</span> Submissions</button></div>';
+  appNav.innerHTML = '<button id="stride-toggle" class="nav-item stride-toggle" type="button" aria-expanded="true" aria-controls="stride-children"><span class="stride-label"><span class="nav-icon">◈</span> Stride</span><span class="stride-chevron" aria-hidden="true">⌄</span></button><div id="stride-children" class="stride-children"><button class="nav-item is-active" type="button" data-table="events"><span class="nav-icon">◫</span> Events</button><button class="nav-item" type="button" data-table="participants"><span class="nav-icon">◎</span> Participants</button><button class="nav-item" type="button" data-table="submissions"><span class="nav-icon">✓</span> Submissions</button></div><a class="nav-item gallery-nav-link" href="gallery.html"><span class="nav-icon">▧</span> Gallery images</a><a class="nav-item programs-nav-link" href="programs.html"><span class="nav-icon">◷</span> Programs</a>';
   const strideToggle = $('#stride-toggle'), strideChildren = $('#stride-children');
   const navItems = [...document.querySelectorAll('.nav-item[data-table]')];
   const labels = { events: 'Events', participants: 'Participants', submissions: 'Submissions' };
   const descriptions = { events: 'Create and manage your running events.', participants: 'View everyone registered for your events.', submissions: 'Review submitted activities and make a decision.' };
-  let client, currentTable = 'events', rows = [], participantCategory = 'all';
+  let client, currentTable = 'events', rows = [], participantCategory = 'all', liveSyncInFlight = false;
 
   const configured = () => /^https:\/\/.+\.supabase\.co\/?$/i.test(config.supabaseUrl || '') && /^(sb_publishable_|eyJ)/.test(config.supabasePublishableKey || '') && config.strideDataUrl;
   const loginUrl = 'index.html';
@@ -74,6 +74,26 @@
     try { const payload = await call('list', { table }); rows = payload.rows || []; render(); status.textContent = `${rows.length} ${rows.length === 1 ? 'record' : 'records'} from the running database.`; }
     catch (error) { status.textContent = error.message; status.classList.add('is-error'); }
     finally { refresh.disabled = false; }
+  };
+
+  const syncLiveData = async () => {
+    if (document.hidden || liveSyncInFlight || !client) return;
+    liveSyncInFlight = true;
+    try {
+      const payload = await call('list', { table:currentTable });
+      const nextRows = payload.rows || [];
+      if (JSON.stringify(nextRows) !== JSON.stringify(rows)) {
+        rows = nextRows;
+        render();
+        status.textContent = 'Live update received.';
+        status.classList.remove('is-error');
+      }
+      await setCounts();
+    } catch {
+      // Keep the last successful view visible; the next live check will retry.
+    } finally {
+      liveSyncInFlight = false;
+    }
   };
 
   const openEvent = (event = {}) => {
@@ -131,7 +151,8 @@
     raceOptions.addEventListener('click', (event) => { const trigger = event.target.closest('[data-race-action]'); if (!trigger) return; const row = trigger.closest('.race-type-row'); if (trigger.dataset.raceAction === 'remove-type') row.remove(); if (trigger.dataset.raceAction === 'add-distance') row.querySelector('.distance-list').insertAdjacentHTML('beforeend', distanceRow()); if (trigger.dataset.raceAction === 'remove-distance') trigger.closest('.distance-row').remove(); });
     raceOptions.addEventListener('change', (event) => { const row = event.target.closest('.race-type-row'); if (event.target.classList.contains('race-type')) row.querySelector('.race-type-custom').hidden = event.target.value !== 'Custom'; if (event.target.classList.contains('distance-preset')) row && (event.target.closest('.distance-row').querySelector('.distance-custom').hidden = event.target.value !== 'Custom'); });
     await Promise.all([load(), setCounts()]);
+    window.setInterval(syncLiveData, 5000);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) syncLiveData(); });
   };
   start();
 })();
-

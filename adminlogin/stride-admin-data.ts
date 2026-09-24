@@ -97,4 +97,3 @@ Deno.serve(async (request) => {
     return reply({ error:'Unknown request.' },400);
   } catch (error) { return reply({ error:error instanceof Error ? error.message : 'Unable to complete the request.' },400); }
 });
-
