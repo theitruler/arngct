@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+  <title>Gallery images | A.R.N Admin</title><link rel="icon" href="../favicon.ico"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="gallery.css">
+</head><body>
+<main class="admin-app">
+  <aside class="app-sidebar"><a class="brand" href="dashboard.html"><span class="brand-dot">A</span><span>A.R.N <b>Admin</b></span></a><p class="nav-caption">Workspace</p>
+    <nav class="app-nav" aria-label="Admin sections"><a class="nav-item" href="dashboard.html"><span class="nav-icon">◈</span> Stride <span class="nav-arrow">↗</span></a><a class="nav-item is-active gallery-nav-link" href="gallery.html" aria-current="page"><span class="nav-icon">▧</span> Gallery images</a><a class="nav-item programs-nav-link" href="programs.html"><span class="nav-icon">◷</span> Programs</a></nav>
+    <div class="sidebar-bottom"><p class="nav-caption">Signed in</p><p id="admin-email" class="admin-email">Checking your session…</p><button id="sign-out-button" class="sign-out-button" type="button">Sign out</button></div>
+  </aside>
+  <section class="app-main"><header class="topbar"><div><p class="eyebrow">Website content</p><h1>Gallery images</h1><p class="gallery-subtitle">The people and moments behind our purpose.</p></div><a class="button button-secondary preview-link" href="../gallery.html" target="_blank" rel="noopener">View gallery ↗</a></header>
+    <p id="admin-status" class="gallery-notice" role="status">Checking your session…</p>
+    <div id="gallery-admin-content" hidden>
+      <section class="workspace-card upload-panel" aria-labelledby="upload-title"><div class="workspace-heading"><div><p class="eyebrow">Share a new moment</p><h2 id="upload-title">Add photos &amp; videos</h2><p>Select multiple files, add event tags, and publish them together.</p></div><span class="gallery-label">PUBLIC GALLERY</span></div>
+        <fieldset id="upload-fields">
+          <div id="drop-zone" class="drop-zone"><span class="upload-symbol" aria-hidden="true">↑</span><strong>Drop your event memories here</strong><span>or choose multiple photos and videos from your device</span><label class="button button-secondary choose-files">Choose files<input id="gallery-files" type="file" multiple accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm,video/quicktime"></label><small>JPG, PNG, WebP, GIF · MP4, WebM, MOV · up to 50 MB each<br>MP4 or WebM is best for playback across browsers.</small></div>
+          <div class="batch-tags"><label>Event / category tags <small>Choose existing tags or add a new tag. You can change tags for each file below.</small></label><div><input id="batch-tags" type="text" maxlength="350"><button id="apply-tags" class="button button-secondary" type="button">Apply to all</button></div></div>
+          <p id="queue-notice" class="gallery-notice" role="status"></p><div id="upload-queue" class="upload-queue"></div>
+        </fieldset>
+        <div class="upload-actions"><p id="queue-summary">No files selected</p><button id="publish-files" class="button button-primary" type="button" disabled>Upload &amp; publish</button></div>
+      </section>
+      <section class="workspace-card library-panel" aria-labelledby="library-title"><div class="workspace-heading"><div><p class="eyebrow">Your collection</p><h2 id="library-title">Media library</h2><p id="library-count">Loading collection…</p></div><button id="refresh-gallery" class="button button-secondary" type="button">↻ Refresh</button></div><div class="library-toolbar"><label for="library-tag">Filter by tag</label><select id="library-tag"><option value="">All tags</option></select></div><p id="library-status" class="gallery-notice" role="status"></p><div id="media-library" class="media-library"></div><button id="library-more" class="button button-secondary" type="button" hidden>Show more</button></section>
+    </div>
+  </section>
+</main>
+<dialog id="edit-media-dialog" class="event-dialog"><form id="edit-media-form"><div class="dialog-heading"><div><p class="eyebrow">Gallery details</p><h2>Edit this moment</h2></div><button class="close-dialog" id="edit-close" type="button" aria-label="Close">×</button></div><div class="form-grid"><label class="span-two">Internal description<input name="title" required maxlength="160"></label><label class="span-two">Tags<input name="tags" required maxlength="350"></label></div><p id="edit-status" class="form-status" role="status"></p><div class="dialog-actions"><button id="edit-save" class="button button-primary" type="submit">Save changes</button></div></form></dialog>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.111.0/dist/umd/supabase.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tus-js-client@4.3.1/dist/tus.min.js"></script>
+<script src="../js/gallery-config.js"></script><script src="../js/gallery-data.js"></script><script src="tag-picker.js"></script><script src="gallery.js"></script>
+</body></html>

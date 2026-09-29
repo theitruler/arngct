@@ -3,7 +3,7 @@
   const page = document.body.dataset.page || '';
   const currentYear = new Date().getFullYear();
   const navItems = [
-    ['Home', 'index.html'], ['About', 'aboutus.html'], ['Programs', 'programs.html'], ['Contact', 'contact.html']
+    ['Home', 'index.html'], ['About', 'aboutus.html'], ['Programs', 'programs.html'], ['Gallery', 'gallery.html'], ['Contact', 'contact.html']
   ];
   const active = (url) => page === url.replace('.html', '') ? ' aria-current="page"' : '';
 
@@ -15,8 +15,8 @@
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><b class="sr-only">Open menu</b></button>
     <nav id="site-nav" aria-label="Primary navigation">${navItems.map(([label, url]) => `<a href="${url}"${active(url)}>${label}</a>`).join('')}<a class="nav-donate" href="${config.donationUrl || 'contact.html'}" target="_blank" rel="noopener">Donate <span aria-hidden="true">↗</span></a></nav>`;
   const footer = `
-    <div class="footer-brand"><img src="logo.png" alt=""><p>A community-first trust working toward opportunity, care, and dignity for all.</p></div>
-    <div><h2>Explore</h2><a href="aboutus.html">About us</a><a href="programs.html">Our programs</a><a href="contact.html">Partner with us</a></div>
+    <div class="footer-brand"><img src="logo.png" alt=""><p>A community-first trust working toward opportunity, care, and dignity for all.</p><a class="footer-instagram" href="https://www.instagram.com/arngct.official" target="_blank" rel="noopener noreferrer" aria-label="Follow A.R.N Growth Charitable Trust on Instagram (opens in a new tab)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a></div>
+    <div><h2>Explore</h2><a href="aboutus.html">About us</a><a href="programs.html">Our programs</a><a href="gallery.html">Gallery</a><a href="contact.html">Partner with us</a></div>
     <div><h2>Connect</h2><a href="mailto:${config.contactEmail || 'hello@arngct.org'}">${config.contactEmail || 'hello@arngct.org'}</a><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></div>
     <p class="copyright">© ${currentYear} A.R.N Growth Charitable Trust. All rights reserved.</p>`;
   document.querySelector('[data-site-header]')?.replaceChildren();
