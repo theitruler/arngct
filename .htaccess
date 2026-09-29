@@ -1,0 +1,5 @@
+# Serve this unlisted campaign at the exact extension-free URL on Apache.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^sanitarypad/?$ sanitarypad/index.html [END]
+</IfModule>

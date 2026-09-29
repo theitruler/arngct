@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/sanitarypad", "destination": "/sanitarypad/index.html" }
+  ]
+}
