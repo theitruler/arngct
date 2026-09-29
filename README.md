@@ -20,6 +20,18 @@ Clean routing is included for Apache (`.htaccess`, requiring mod_rewrite), Netli
 
 Preview with `node tests/serve.cjs` and open `http://127.0.0.1:4173/sanitarypad`. Run `node tests/sanitarypad.cjs` with Playwright available to verify phone/desktop layouts, direct-route reload, gestures, keyboard controls, and the waiting-list dialog.
 
+## Coolify Dockerfile deployment
+
+The root `Dockerfile` packages the public website with Nginx. `nginx.conf` serves `/sanitarypad` internally from `sanitarypad/index.html`, with no external redirect. Other directory redirects are relative so they cannot expose the container's internal HTTP scheme or port through Coolify's HTTPS proxy. The existing admin pages and other public pages are included.
+
+In the existing Git-backed Coolify application, select **Dockerfile** as the build pack, set **Base Directory** to `/`, **Dockerfile Location** to `/Dockerfile`, and **Ports Exposes** to `3000`. Deploy the branch containing these files. If the application currently uses a Dockerfile entered directly in Coolify, configure it to build this repository's Dockerfile instead; changing the repository alone will not replace an inline Dockerfile. Keep the public domain on HTTPS and let Coolify proxy requests to port 3000.
+
+Save and **Redeploy** to build the new image. A restart of the old image does not apply these files. Test `https://arngct.org/sanitarypad` in a fresh private window to avoid a previously cached 301 redirect. It should respond directly with HTTP 200 and no `Location` header. Also verify `/sanitarypad/`, `/adminlogin/`, and `/gallery.html`.
+
+The Docker build runs `nginx -t`, and its health check requests `/sanitarypad`. For local Docker verification, run `docker build -t arngct-site .`, then `docker run --rm -p 8080:3000 arngct-site` and open `http://localhost:8080/sanitarypad`.
+
+Only public files are copied into the image. `.dockerignore` excludes private environment files, Git history, tests, and database scripts. The image uses the checked-in `js/sanitarypad-config.js`: if the waiting-list endpoint changes, run `node scripts/generate-waitlist-config.cjs` and commit the generated file before deployment. Runtime environment variables do not modify this static JavaScript.
+
 ## Local preview
 
 Serve the folder with any static HTTP server (for example, VS Code Live Server or `npx serve .`). Do not open the pages directly from the filesystem: program data is loaded with `fetch` and browsers block that request on `file://` URLs.

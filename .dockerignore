@@ -1,0 +1,17 @@
+.git
+.codex
+.agents
+**/.env
+**/.env.*
+node_modules
+tests
+scripts
+supabase
+data
+README.md
+adminlogin/README.md
+adminlogin/*.ts
+assets/sanitarypad/PROMPTS.md
+.htaccess
+_redirects
+vercel.json
