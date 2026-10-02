@@ -54,7 +54,10 @@
   const trigger = document.querySelector('#join-waitlist');
   const form = document.querySelector('#waitlist-form');
   const status = document.querySelector('#waitlist-status');
-  trigger.addEventListener('click', event => { event.preventDefault(); dialog.showModal(); });
+  const toast = document.querySelector('#waitlist-toast');
+  let toastTimeout;
+  const hideToast = () => { clearTimeout(toastTimeout); toast.classList.remove('is-visible'); toast.textContent = ''; };
+  trigger.addEventListener('click', event => { event.preventDefault(); hideToast(); if (!form.querySelector('button[type="submit"]').disabled) status.textContent = ''; dialog.showModal(); });
   dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => {
     const rect = dialog.getBoundingClientRect();
@@ -89,6 +92,11 @@
       if (!response.ok) throw new Error('Request failed');
       form.reset();
       status.textContent = 'Thank you! Your waiting-list request has been sent. We’ll be in touch when the collection is ready.';
+      dialog.close();
+      hideToast();
+      toast.textContent = 'Thank you for your submission!';
+      toast.classList.add('is-visible');
+      toastTimeout = setTimeout(hideToast, 6500);
     } catch {
       status.textContent = `We couldn’t send your request. Please try again or email ${config.contactEmail || 'enquiry@arngct.org'}.`;
     } finally {clearTimeout(timeout); button.disabled = false;}

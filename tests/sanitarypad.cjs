@@ -25,6 +25,10 @@ const webhook = 'https://n8n.arngct.org/webhook/saniatrypad';
     assert.equal(new URL(page.url()).pathname, '/sanitarypad');
     assert.equal(await page.locator('nav, header, footer, [data-site-header], [data-site-footer]').count(), 0);
     assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'), 'noindex, nofollow');
+    assert.equal((await page.locator('#campaign-title').innerText()).replace(/\s+/g,' ').toLowerCase(), 'what is period poverty?');
+    const imageSources = await page.locator('main img').evaluateAll(images => images.map(img => img.src));
+    assert.equal(new Set(imageSources).size, imageSources.length, 'Every campaign illustration is unique');
+    assert.equal(await page.locator('#help-cards h3').last().innerText(), 'Support a rural girl');
     assert.deepEqual(await page.locator('main > section').evaluateAll(sections => sections.map(section => section.getAttribute('aria-labelledby'))),
       ['campaign-title','why-title','work-title','help-title','giving-title','impact-title',null], 'Buy one, give one follows How can you help');
     assert.equal(await page.evaluate(() => window.ARN_CONFIG.waitlistWebhookUrl), webhook);
@@ -85,6 +89,8 @@ const webhook = 'https://n8n.arngct.org/webhook/saniatrypad';
     await page.waitForFunction(()=>document.querySelector('#waitlist-status').textContent.includes('couldn’t'));
     assert.equal(await page.locator('#waitlist-name').inputValue(),'Campaign test','Failed submission preserves input');
     assert.equal(await page.locator('#waitlist-email').inputValue(),'campaign-test@example.com','Failed submission preserves email');
+    assert.ok(await page.locator('#waitlist-dialog').evaluate(el=>el.open), 'Failure keeps dialog open');
+    assert.equal(await page.locator('#waitlist-toast').innerText(), '', 'Failure does not show a success toast');
     await page.unroute(webhook);
     await page.route(webhook, async route=>{
       assert.equal(route.request().method(), 'POST');
@@ -94,6 +100,10 @@ const webhook = 'https://n8n.arngct.org/webhook/saniatrypad';
     });
     await page.locator('#waitlist-form button[type="submit"]').click();
     await page.waitForFunction(()=>document.querySelector('#waitlist-status').textContent.includes('Thank you'));
+    assert.equal(await page.locator('#waitlist-dialog').evaluate(el=>el.open),false, 'Success closes dialog');
+    assert.equal(await page.evaluate(()=>document.activeElement.id),'join-waitlist');
+    assert.equal(await page.locator('#waitlist-toast').innerText(),'Thank you for your submission!');
+    assert.equal(await page.locator('#waitlist-toast').evaluate(el=>getComputedStyle(el).opacity),'1');
     assert.equal(requests.length,2);
     assert.ok(requests[1].message.includes('waiting list'));
     assert.deepEqual({name:requests[1].name,email:requests[1].email,contact:requests[1].contact,consent:requests[1].consent,source:requests[1].source},
@@ -101,6 +111,7 @@ const webhook = 'https://n8n.arngct.org/webhook/saniatrypad';
     assert.equal(await page.locator('#waitlist-name').inputValue(),'');
     assert.equal(await page.locator('#waitlist-email').inputValue(),'');
     await page.screenshot({path:path.join(__dirname,'output','sanitarypad-waitlist.png')});
+    await page.waitForFunction(()=>document.querySelector('#waitlist-toast').textContent === '', null, {timeout:8000});
     await page.reload();
     assert.equal(new URL(page.url()).pathname,'/sanitarypad');
     assert.deepEqual(errors,[]);
